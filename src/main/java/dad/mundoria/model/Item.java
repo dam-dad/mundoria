@@ -121,7 +121,7 @@ public class Item {
 		return valor;
 	}
 
-	public boolean isEstaEquipado() {
+	public boolean estaEquipado() {
 		return estaEquipado;
 	}
 

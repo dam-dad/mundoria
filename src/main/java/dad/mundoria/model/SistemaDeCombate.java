@@ -9,10 +9,10 @@ public class SistemaDeCombate {
 	private List<Enemigo> enemigos;
 	private List<Personaje> personajes;
 	
-	public SistemaDeCombate(Dado dado6, Dado dado20, List<Enemigo> enemigos, List<Personaje> personajes) {
+	public SistemaDeCombate(List<Enemigo> enemigos, List<Personaje> personajes) {
 		super();
-		this.dado6 = dado6;
-		this.dado20 = dado20;
+		this.dado6 = new Dado(6);
+		this.dado20 = new Dado(20);
 		this.enemigos = enemigos;
 		this.personajes = personajes;
 	}

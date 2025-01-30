@@ -20,21 +20,19 @@ public class Personaje {
 	private Map<Efecto, Integer> efectosTemporales;
 	
 	public Personaje(
-			String nombre, String trasfondo, int salud, int stamana, int agilidad,
-			int suerte, int defensa, int ataque, Clase clase, Raza raza, Inventario inventario
-			) {
+			String nombre, String trasfondo, Clase clase, Raza raza) {
 		super();
 		this.nombre = nombre;
 		this.trasfondo = trasfondo;
-		this.salud = salud;
-		this.stamana = stamana;
-		this.agilidad = agilidad;
-		this.suerte = suerte;
-		this.defensa = defensa;
-		this.ataque = ataque;
+		this.salud = 100;
+		this.stamana = 100;
+		this.agilidad = 50;
+		this.suerte = 0;
+		this.defensa = 0;
+		this.ataque = 0;
 		this.clase = clase;
-		this.raza = raza;
-		this.inventario = inventario;
+		this.raza = raza;		
+		this.inventario = new Inventario(null, 10, 100);
 	}
 	
 	public int atacar(Personaje objetivo, Habilidad habilidadUsada) {

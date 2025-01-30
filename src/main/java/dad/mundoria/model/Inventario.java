@@ -1,5 +1,6 @@
 package dad.mundoria.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Inventario {
@@ -7,7 +8,7 @@ public class Inventario {
 	private List<Item> items;
 	private int capacidadMaxima;
 	private double oro;
-	private List<Item> itemsEquipados;
+	private List<Item> itemsEquipados = new ArrayList<>();
 	
 	public Inventario(List<Item> items, int capacidadMaxima, double oro) {
 		super();
