@@ -48,7 +48,7 @@ public class Raza {
 	public int getSaludBase() {
 		return saludBase;
 	}
-	
+
 	public int getStamanaBase() {
 		return stamanaBase;
 	}
@@ -76,5 +76,5 @@ public class Raza {
 	public TipoHabilidad getDebilidadFisica() {
 		return debilidadFisica;
 	}
-	
+
 }

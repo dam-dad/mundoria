@@ -4,13 +4,21 @@ import java.util.Arrays;
 import java.util.List;
 
 import dad.mundoria.model.Clase;
+import dad.mundoria.model.Efecto;
+import dad.mundoria.model.Efecto.TipoEfecto;
+import dad.mundoria.model.Enemigo;
+import dad.mundoria.model.Entidad;
 import dad.mundoria.model.Habilidad;
 import dad.mundoria.model.Habilidad.TipoHabilidad;
+import dad.mundoria.model.Item;
+import dad.mundoria.model.Item.RarezaItem;
+import dad.mundoria.model.Item.TipoItem;
+import dad.mundoria.model.Personaje;
 import dad.mundoria.model.Raza;
 
 public class DatosPredefinidos {
-	
-	//Descripciones razas
+
+	// Descripciones razas
 	private static final String HUMANO_DESCRIPCION = "Adaptables y ambiciosos, los humanos forman las naciones más extensas. "
 			+ "Algunos se dedican a estudiar la magia en academias, mientras otros la temen.";
 	private static final String ALDOREI_DESCRIPCION = "Una raza de elfos cuyo vínculo con la naturaleza les otorga longevidad y"
@@ -24,28 +32,44 @@ public class DatosPredefinidos {
 			+ "Aunque son raros, son seres pacíficos que guardan secretos de la magia antigua.";
 	private static final String TERSK_DESCRIPCION = "Nómadas felinos con agilidad extrema y sentidos agudos. Se dice que son los "
 			+ "guardianes de las Ruinas Prohibidas, donde yace el poder del Cataclismo.";
-	
+
 	public static final List<Raza> RAZAS = Arrays.asList(
-			new Raza(1, "Humano", HUMANO_DESCRIPCION, 100, 100, 50, 0, 0, 0, TipoHabilidad.MAGICO_ARCANO, TipoHabilidad.FISICO_PERFORANTE),
-			new Raza(2, "Al'dorei", ALDOREI_DESCRIPCION, 75, 150, 40, 10, 0, 0, TipoHabilidad.MAGICO_SOMBRA, TipoHabilidad.FISICO_PERFORANTE),
-			new Raza(3, "Skarn", SKARN_DESCRIPCION, 120, 80, 10, 0, 5, 5, TipoHabilidad.MAGICO_CELESTIAL, TipoHabilidad.FISICO_CONTUNDENTE),
-			new Raza(4, "Dwarkin", DWARKIN_DESCRIPCION, 100, 120, 35, 0, 5, 0, TipoHabilidad.MAGICO_HIELO, TipoHabilidad.FISICO_CORTANTE),
-			new Raza(5, "Silfos", SILFOS_DESCRIPCION, 120, 135, 65, 0, 0, 0, TipoHabilidad.MAGICO_ARCANO, null), //Posible clase incapaz de hacer y recibir daño físico.
-			new Raza(6, "Tersk", TERSK_DESCRIPCION, 75, 120, 80, 10, 0, 0, TipoHabilidad.MAGICO_FUEGO, TipoHabilidad.FISICO_CORTANTE)
-			);
-	
-	//TODO Hay que replantear los efectos, quizás solo debamos dejarlos para los consumibles y no tanto para las habilidades, solo unos pocos.
-	//     Ademas, quizás no haga falta una lista de efectos, sino crear un efecto distinto según el caso.
-//	public static final List<Efecto> EFECTOS = Arrays.asList(
-//			new Efecto(1, "Daño directo", "Daño directo al objetivo, resta HP.", TipoEfecto.DAÑO, 10, 0),
-//			new Efecto(2, "Aturdimiento", "Aturde al objetivo, impidiendo que haga nada.", TipoEfecto.STUN, 0, 1),
-//			new Efecto(3, "Proteccion temporal", "Evita o reduce el daño del objetivo. Se puede usar en si mismo.", TipoEfecto.PROTECCION, 0, 1),
-//			new Efecto(4, "Mofa", "Llama la atención de los enemigos hacia quien lo tiene.", TipoEfecto.LLAMADA, 0, 1),
-//			new Efecto(5, "Proteccion temporal", "Protege")
-//			);
-	
-	
-	// Descripciones de todas las habilidades. La nomenclatura de las variables va en función al ID de la habildiad.
+			new Raza(1, "Humano", HUMANO_DESCRIPCION, 100, 100, 50, 0, 0, 0, TipoHabilidad.MAGICO_ARCANO,
+					TipoHabilidad.FISICO_PERFORANTE),
+			new Raza(2, "Al'dorei", ALDOREI_DESCRIPCION, 75, 150, 40, 10, 0, 0, TipoHabilidad.MAGICO_SOMBRA,
+					TipoHabilidad.FISICO_PERFORANTE),
+			new Raza(3, "Skarn", SKARN_DESCRIPCION, 120, 80, 10, 0, 5, 5, TipoHabilidad.MAGICO_CELESTIAL,
+					TipoHabilidad.FISICO_CONTUNDENTE),
+			new Raza(4, "Dwarkin", DWARKIN_DESCRIPCION, 100, 120, 35, 0, 5, 0, TipoHabilidad.MAGICO_HIELO,
+					TipoHabilidad.FISICO_CORTANTE),
+			new Raza(5, "Silfos", SILFOS_DESCRIPCION, 120, 135, 65, 0, 0, 0, TipoHabilidad.MAGICO_ARCANO, null), // Posible
+																													// clase
+																													// incapaz
+																													// de
+																													// hacer
+																													// y
+																													// recibir
+																													// daño
+																													// físico.
+			new Raza(6, "Tersk", TERSK_DESCRIPCION, 75, 120, 80, 10, 0, 0, TipoHabilidad.MAGICO_FUEGO,
+					TipoHabilidad.FISICO_CORTANTE));
+
+	// TODO Hay que replantear los efectos, quizás solo debamos dejarlos para los
+	// consumibles y no tanto para las habilidades, solo unos pocos.
+	// Ademas, quizás no haga falta una lista de efectos, sino crear un efecto
+	// distinto según el caso.
+	public static final List<Efecto> EFECTOS = Arrays.asList(
+			new Efecto(1, "Aturdimiento", "Aturde al objetivo, impidiendo que haga nada.", TipoEfecto.STUN, 0, 1),
+			new Efecto(2, "Proteccion temporal", "Evita o reduce el daño del objetivo. Se puede usar en si mismo.",
+					TipoEfecto.PROTECCION, 0, 1),
+			new Efecto(3, "Mofa", "Llama la atención de los enemigos hacia quien lo tiene.", TipoEfecto.LLAMADA, 0, 1),
+			new Efecto(4, "Curación temporal", "Cura durante una serie de turnos un valor definido de puntos de salud",
+					TipoEfecto.CURACION, 15, 2),
+			new Efecto(5, "Daño temporal", "Daña durante una serie de turnos un valor definido de puntos de salud",
+					TipoEfecto.DAÑO, 15, 2));
+
+	// Descripciones de todas las habilidades. La nomenclatura de las variables va
+	// en función al ID de la habildiad.
 	// Es decir, DESCRIPCION_1 es la descripción para la habilidad con id 1.
 	private static final String DESCRIPCION_1 = "Realiza un ataque físico. Si el jugador saca un 5 o 6 en un dado de "
 			+ "6 caras, el enemigo queda aturdido durante un turno.";
@@ -85,36 +109,34 @@ public class DatosPredefinidos {
 			+ "las tiradas de ataque.";
 	private static final String DESCRIPCION_20 = "Ataca a todos los enemigos en línea recta. Cada uno debe fallar una tirada de 5 "
 			+ "o más para evitar el daño.";
-	
-	
+
 	public static final List<Habilidad> HABILIDADES = Arrays.asList(
-			new Habilidad(1, "Golpe de Escudo", DESCRIPCION_1, TipoHabilidad.FISICO_CONTUNDENTE, 10, 1, null),
+			new Habilidad(1, "Golpe de Escudo", DESCRIPCION_1, TipoHabilidad.FISICO_CONTUNDENTE, 10, 1,
+					Arrays.asList(EFECTOS.get(0))),
 			new Habilidad(2, "Postura Defensiva", DESCRIPCION_2, null, 10, 3, null),
 			new Habilidad(3, "Rugido Intimidante", DESCRIPCION_3, null, 10, 5, null),
 			new Habilidad(4, "Muro Inquebrantable", DESCRIPCION_4, null, 20, 7, null),
 			new Habilidad(5, "Ira del Guardián", DESCRIPCION_5, null, 20, 10, null),
-			
+
 			new Habilidad(6, "Orbe Arcano", DESCRIPCION_6, TipoHabilidad.MAGICO_ARCANO, 10, 1, null),
 			new Habilidad(7, "Escudo de Maná", DESCRIPCION_7, null, 15, 3, null),
 			new Habilidad(8, "Explosión Elemental", DESCRIPCION_8, TipoHabilidad.MAGICO_FUEGO, 20, 5, null),
 			new Habilidad(9, "Canalización Avanzada", DESCRIPCION_9, null, 20, 7, null),
 			new Habilidad(10, "Lluvia de Meteoro", DESCRIPCION_10, TipoHabilidad.MAGICO_CELESTIAL, 45, 10, null),
-			
+
 			new Habilidad(11, "Golpe Letal", DESCRIPCION_11, TipoHabilidad.FISICO_PERFORANTE, 10, 1, null),
 			new Habilidad(12, "Paso Sombrío", DESCRIPCION_12, TipoHabilidad.FISICO_PERFORANTE, 10, 3, null),
 			new Habilidad(13, "Niebla Evasiva", DESCRIPCION_13, null, 10, 5, null),
 			new Habilidad(14, "Veneno Mortal", DESCRIPCION_14, TipoHabilidad.FISICO_CORTANTE, 10, 7, null),
 			new Habilidad(15, "Danza de las Sombras", DESCRIPCION_15, TipoHabilidad.FISICO_PERFORANTE, 20, 10, null),
-			
+
 			new Habilidad(16, "Disparo preciso", DESCRIPCION_16, TipoHabilidad.FISICO_PERFORANTE, 10, 1, null),
 			new Habilidad(17, "Trampa de Pinchos", DESCRIPCION_17, TipoHabilidad.FISICO_CONTUNDENTE, 10, 3, null),
 			new Habilidad(18, "Flecha Explosiva", DESCRIPCION_18, TipoHabilidad.MAGICO_FUEGO, 20, 5, null),
 			new Habilidad(19, "Ojo de Halcón", DESCRIPCION_19, null, 10, 7, null),
-			new Habilidad(20, "Disparo Perforante", DESCRIPCION_20, TipoHabilidad.FISICO_PERFORANTE, 20, 10, null)
-			);
-			
-	
-	//Descripciones de las clases
+			new Habilidad(20, "Disparo Perforante", DESCRIPCION_20, TipoHabilidad.FISICO_PERFORANTE, 20, 10, null));
+
+	// Descripciones de las clases
 	private static final String DESCRIPCION_GUARDIAN = "El Guardián es un baluarte inquebrantable, un defensor nato que antepone la"
 			+ " seguridad de su grupo a todo lo demás. Con su escudo y su determinación, se convierte en la primera línea de defensa"
 			+ " contra cualquier amenaza. Aunque no es el más rápido ni el más ágil, su fortaleza y resistencia son legendarias, "
@@ -130,18 +152,33 @@ public class DatosPredefinidos {
 			+ "Desde las sombras o la seguridad de la distancia, puede desatar una lluvia de flechas o atrapar a sus enemigos con "
 			+ "trampas cuidadosamente colocadas. En combate, su precisión es mortal, y fuera de él, es un invaluable guía para "
 			+ "cualquier grupo.";
-	
-	//Lemas de las clases
+
+	// Lemas de las clases
 	private static final String LEMA_GUARDIAN = "";
 	private static final String LEMA_MAGO = "";
 	private static final String LEMA_ASESINO = "";
 	private static final String LEMA_CAZADOR = "";
-	
+
 	public static final List<Clase> CLASES = Arrays.asList(
 			new Clase(1, "Guardián", DESCRIPCION_GUARDIAN, LEMA_GUARDIAN, HABILIDADES.subList(0, 5)),
 			new Clase(2, "Mago", DESCRIPCION_MAGO, LEMA_MAGO, HABILIDADES.subList(5, 10)),
 			new Clase(3, "Asesino", DESCRIPCION_ASESINO, LEMA_ASESINO, HABILIDADES.subList(10, 15)),
-			new Clase(4, "Cazador", DESCRIPCION_CAZADOR, LEMA_CAZADOR, HABILIDADES.subList(15, 20))
-			);
-	
+			new Clase(4, "Cazador", DESCRIPCION_CAZADOR, LEMA_CAZADOR, HABILIDADES.subList(15, 20)));
+
+	public static final List<Item> ITEMS = Arrays.asList(
+			new Item(1, "Yelmo del Ocaso", "", 5, 0, 0, 0, 10, 0, 300, false, TipoItem.ARMADURA, RarezaItem.BUENO),
+			new Item(2, "Peto del Ocaso", "", 20, 0, 0, 0, 30, 0, 600, false, TipoItem.ARMADURA, RarezaItem.BUENO),
+			new Item(3, "Grebas del Ocaso", "", 10, 0, 0, 0, 15, 0, 450, false, TipoItem.ARMADURA, RarezaItem.BUENO),
+			new Item(4, "Botas del Ocaso", "", 5, 0, 0, 0, 10, 0, 300, false, TipoItem.ARMADURA, RarezaItem.BUENO),
+			new Item(5, "Espada del Ocaso", "", 0, 5, 5, 0, 0, 20, 800, false, TipoItem.ARMA, RarezaItem.BUENO));
+
+	// Solo para la DEMO
+	public static final List<Entidad> ENTIDADES = Arrays.asList(
+			new Personaje("Joel", "Personaje bastante explosivo", CLASES.get(1), RAZAS.get(0)),
+			new Personaje("Baltarys el Grato", "Personaje bastante grato", CLASES.get(0), RAZAS.get(2)),
+			new Enemigo("Guardián de Piedra", "Va duro el colega", CLASES.get(0), RAZAS.get(3),
+					Arrays.asList(ITEMS.get(4))),
+			new Enemigo("Lobo del Inframundo", "Lo más suave que te va a hacer es ladrar", CLASES.get(2), RAZAS.get(5),
+					Arrays.asList(ITEMS.get(0))));
+
 }

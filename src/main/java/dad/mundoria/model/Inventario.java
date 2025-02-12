@@ -9,43 +9,42 @@ public class Inventario {
 	private int capacidadMaxima;
 	private double oro;
 	private List<Item> itemsEquipados = new ArrayList<>();
-	
+
 	public Inventario(List<Item> items, int capacidadMaxima, double oro) {
 		super();
 		this.items = items;
 		this.capacidadMaxima = capacidadMaxima;
 		this.oro = oro;
 	}
-	
+
 	public boolean agregarItem(Item item) {
-		
-		if(capacidadMaxima != items.size()) {
+
+		if (capacidadMaxima != items.size()) {
 			items.add(item);
 			return true;
 		} else {
 			return false;
 		}
-		
-		
+
 	}
-	
+
 	public boolean eliminarItem(Item item) {
 		items.remove(item);
 		return true;
 	}
-	
+
 	public void sumarOro(double cantidad) {
 		oro = oro + cantidad;
 	}
-	
+
 	public void restarOro(double cantidad) {
 		oro = oro - cantidad;
 	}
-	
+
 	public List<Item> getItems() {
 		return items;
 	}
-	
+
 	public void setItems(List<Item> items) {
 		this.items = items;
 	}
@@ -65,15 +64,13 @@ public class Inventario {
 	public void setOro(double oro) {
 		this.oro = oro;
 	}
-	
+
 	public List<Item> getItemsEquipados() {
 		return itemsEquipados;
 	}
-	
+
 	public void setItemsEquipados(List<Item> itemsEquipados) {
 		this.itemsEquipados = itemsEquipados;
 	}
-	
-	
-	
+
 }

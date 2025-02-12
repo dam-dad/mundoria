@@ -45,12 +45,13 @@ public class Habilidad {
 		this.efectos = efectos;
 	}
 
-	public void usarHabilidad(Personaje actor, Personaje objetivo, int tiradaDado) {
+	public void usarHabilidad(Entidad actor, Entidad objetivo, int tiradaDado) {
 
-		
 		// Comienza el uso del dado de daño (6 caras)
-		// Habrán 3 tiradas por así decirlo. 1 y 2 serán tirada baja, 3 y 4 tirada neutra y por último; 5 y 6 tirada alta.
-		// Cada tirada afecta al daño. Tirada baja quita 20 puntos de daño, tirada neutra no quita ni suma, tirada alta añade 20 puntos de daño.
+		// Habrán 3 tiradas por así decirlo. 1 y 2 serán tirada baja, 3 y 4 tirada
+		// neutra y por último; 5 y 6 tirada alta.
+		// Cada tirada afecta al daño. Tirada baja quita 20 puntos de daño, tirada
+		// neutra no quita ni suma, tirada alta añade 20 puntos de daño.
 		int modificador = 0;
 
 		if (tiradaDado == 1 || tiradaDado == 2) {
@@ -62,7 +63,7 @@ public class Habilidad {
 		} else {
 			System.err.println("ERROR: Dado inválido, dado de solamente 6 caras.");
 		}
-		
+
 		// Aquí se suma a la tirada el ataque del actor
 		modificador += actor.getAtaque();
 

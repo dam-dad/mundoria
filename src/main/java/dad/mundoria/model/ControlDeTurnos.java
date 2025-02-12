@@ -1,48 +1,45 @@
 package dad.mundoria.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ControlDeTurnos {
 
-	private List<Object> entidadesEnTurno;
+	private List<Entidad> entidadesEnTurno;
 	private int turnoActual;
-	
-	public ControlDeTurnos(List<Personaje> personajesEnTurno, List<Enemigo> enemigosEnTurno) {
-		
-		this.entidadesEnTurno = new ArrayList<>();
-		this.entidadesEnTurno.addAll(personajesEnTurno);
-		this.entidadesEnTurno.addAll(enemigosEnTurno);
+
+	public ControlDeTurnos(List<Entidad> entidadesEnTurno) {
+
+		this.entidadesEnTurno = entidadesEnTurno;
 		this.turnoActual = 0;
-		
+
 	}
-	
-	public Object iniciarTurnos() {
-		
+
+	public Entidad iniciarTurnos() {
+
 		turnoActual = 0;
 		return entidadesEnTurno.get(turnoActual);
-		
+
 	}
-	
-	public Object avanzarTurno() {
-		
+
+	public Entidad avanzarTurno() {
+
 		turnoActual = (turnoActual + 1) % entidadesEnTurno.size();
 		return entidadesEnTurno.get(turnoActual);
-		
+
 	}
-	
-	public Object obtenerEntidadActual() {
-		
+
+	public Entidad obtenerEntidadActual() {
+
 		return entidadesEnTurno.get(turnoActual);
-		
+
 	}
-	
+
 	public int getTurnoActual() {
 		return turnoActual;
 	}
-	
-	public List<Object> getEntidadesEnTurno() {
+
+	public List<Entidad> getEntidadesEnTurno() {
 		return entidadesEnTurno;
 	}
-	
+
 }

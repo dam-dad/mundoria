@@ -1,92 +1,127 @@
 package dad.mundoria.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SistemaDeCombate {
+
+	private TurnoListener listener;
 
 	private Dado dado6;
 	private Dado dado20;
 	private List<Enemigo> enemigos;
 	private List<Personaje> personajes;
-	
+	private ControlDeTurnos controlTurnos;
+	private List<Entidad> entidades;
+
 	public SistemaDeCombate(List<Enemigo> enemigos, List<Personaje> personajes) {
-		super();
 		this.dado6 = new Dado(6);
 		this.dado20 = new Dado(20);
 		this.enemigos = enemigos;
 		this.personajes = personajes;
+		List<Entidad> entidades = new ArrayList<>();
+		entidades.addAll(personajes);
+		entidades.addAll(enemigos);
+		this.entidades = entidades;
+		this.controlTurnos = new ControlDeTurnos(entidades);
 	}
-	
-	public void iniciarCombate(List<Personaje> personajes, List<Enemigo> enemigos) {
-		
-		for(Personaje personaje : personajes) {
+
+	public void iniciarCombate() {
+
+		for (Personaje personaje : personajes) {
 			personaje.inicializarEstadisticas();
 		}
-		
-		for(Enemigo enemigo : enemigos) {
+
+		for (Enemigo enemigo : enemigos) {
 			enemigo.inicializarEstadisticas();
 		}
-		
+
+		controlTurnos.iniciarTurnos();
+		procesarCombate();
+
 	}
-	
-	public boolean resolverCombate(List<Personaje> personajes, List<Enemigo> enemigos) {
-		
+
+	public void procesarCombate() {
+		if (resolverCombate()) {
+			// TODO Lógica para final de combate.
+			return;
+		}
+
+		Entidad entidad = controlTurnos.obtenerEntidadActual();
+
+		if (entidad instanceof Enemigo) {
+			Enemigo enemigo = (Enemigo) entidad;
+			Entidad objetivo = enemigo.elegirObjetivo(entidades); // Es estrictamente necesario llamar a elegirObjetivo
+																	// antes de llamar a elegirHabilidad
+			Habilidad habilidad = enemigo.elegirHabilidad();
+			realizarAccion(enemigo, objetivo, habilidad);
+			controlTurnos.avanzarTurno();
+			listener.turnoEnemigo();
+			procesarCombate();
+		} else if (entidad instanceof Personaje) {
+			// Pausar el combate y esperar a la entrada del jugador.
+			listener.turnoJugador((Personaje) entidad);
+		}
+	}
+
+	public boolean resolverCombate() {
+
 		boolean enemigoGanador;
 		boolean jugadorGanador;
-		
+
 		enemigoGanador = equipoDerrotado(personajes);
 		jugadorGanador = equipoEnemigoDerrotado(enemigos);
-		
-		if(enemigoGanador == true) {
+
+		if (enemigoGanador == true) {
 			return true;
-		} else if(jugadorGanador == true) {
+		} else if (jugadorGanador == true) {
 			return true;
 		} else {
 			return false;
 		}
-		
+
 	}
-	
+
 	public boolean equipoDerrotado(List<Personaje> personajes) {
-		for(Personaje personaje : personajes) {
-			if(personaje.getSalud() > 0) {
+		for (Personaje personaje : personajes) {
+			if (personaje.getSalud() > 0) {
 				return false;
 			}
 		}
 		return true;
 	}
-	
+
 	public boolean equipoEnemigoDerrotado(List<Enemigo> enemigos) {
-		for(Enemigo enemigo : enemigos) {
-			if(enemigo.getSalud() > 0) {
+		for (Enemigo enemigo : enemigos) {
+			if (enemigo.getSalud() > 0) {
 				return false;
 			}
 		}
 		return true;
 	}
-	
-	public void realizarAccion(Personaje atacante, Personaje atacado, Habilidad habilidadElegida) {
-		
+
+	public void realizarAccion(Entidad atacante, Entidad atacado, Habilidad habilidadElegida) {
+
 		int tiradaAtacante = 0;
 		int tiradaAtacado = 0;
 		int tiradaDaño = 0;
-		
-		while(tiradaAtacante == tiradaAtacado) {
+
+		while (tiradaAtacante == tiradaAtacado) {
 			tiradaAtacante = dado20.lanzar();
 			tiradaAtacado = dado20.lanzar();
 		}
-		
-		if(tiradaAtacante > tiradaAtacado) {
+
+		if (tiradaAtacante > tiradaAtacado) {
 			tiradaDaño = dado6.lanzar();
 			habilidadElegida.usarHabilidad(atacante, atacado, tiradaDaño);
-			
+
 		} else {
 			atacante.modificarEstadistica("stamana", -habilidadElegida.getCosteStamana());
 			atacado.evadir();
 		}
-		
+
 	}
-	
+
 	public Dado getDado6() {
 		return dado6;
 	}
@@ -102,5 +137,13 @@ public class SistemaDeCombate {
 	public List<Personaje> getPersonajes() {
 		return personajes;
 	}
-	
+
+	public List<Entidad> getEntidades() {
+		return entidades;
+	}
+
+	public void setListener(TurnoListener listener) {
+		this.listener = listener;
+	}
+
 }

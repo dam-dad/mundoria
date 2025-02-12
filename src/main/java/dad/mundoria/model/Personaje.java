@@ -2,89 +2,40 @@ package dad.mundoria.model;
 
 import java.util.Map;
 
-public class Personaje {
+public class Personaje extends Entidad {
 
-	private String nombre;
-	private String trasfondo;
-	private int salud;
-	private int stamana;
-	private int agilidad;
-	private int suerte;
-	private int defensa;
-	private int ataque;
 	private int nivel;
 	private double xp;
-	private Clase clase;
-	private Raza raza;
 	private Inventario inventario;
 	private Map<Efecto, Integer> efectosTemporales;
-	
-	public Personaje(
-			String nombre, String trasfondo, Clase clase, Raza raza) {
-		super();
-		this.nombre = nombre;
-		this.trasfondo = trasfondo;
-		this.salud = 100;
-		this.stamana = 100;
-		this.agilidad = 50;
-		this.suerte = 0;
-		this.defensa = 0;
-		this.ataque = 0;
-		this.clase = clase;
-		this.raza = raza;		
+
+	public Personaje(String nombre, String trasfondo, Clase clase, Raza raza) {
+		super(nombre, trasfondo, clase, raza);
 		this.inventario = new Inventario(null, 10, 100);
+		this.nivel = 1;
+		this.xp = 0;
 	}
-	
-	public int atacar(Personaje objetivo, Habilidad habilidadUsada) {
-		
+
+	@Override
+	public void evadir() {
+
 	}
-	
-	public boolean evadir() {
-		
-	}
-	
+
 	public void subirNivel() {
-		
+		setNivel(nivel++);
 	}
-	
-	public void modificarEstadistica(String estadistica, int valor) {
-		
-		switch(estadistica) {
-		case "salud":
-			salud += valor;
-			break;
-		case "stamana":
-			stamana += valor;
-			break;
-		case "agilidad":
-			agilidad += valor;
-			break;
-		case "suerte":
-			suerte += valor;
-			break;
-		case "defensa":
-			defensa += valor;
-			break;
-		case "ataque":
-			ataque += valor;
-			break;
-		default:
-			System.err.println("ERROR: Valor en campo estadística inválido.");
-			break;
-		}
-		
-	}
-	
+
+	@Override
 	public void inicializarEstadisticas() {
-		
+
 		int saludExtraTotal = 0;
 		int stamanaExtraTotal = 0;
 		int agilidadExtraTotal = 0;
 		int suerteExtraTotal = 0;
 		int defensaExtraTotal = 0;
 		int ataqueExtraTotal = 0;
-		
-		for(Item item : inventario.getItemsEquipados()) {
+
+		for (Item item : inventario.getItemsEquipados()) {
 			saludExtraTotal += item.getSaludExtra();
 			stamanaExtraTotal += item.getStamanaExtra();
 			agilidadExtraTotal += item.getAgilidadExtra();
@@ -92,21 +43,21 @@ public class Personaje {
 			defensaExtraTotal += item.getDefensaExtra();
 			ataqueExtraTotal += item.getAtaqueExtra();
 		}
-		
-		salud = raza.getSaludBase() + saludExtraTotal;
-		stamana = raza.getStamanaBase() + stamanaExtraTotal;
-		agilidad = raza.getAgilidadBase() + agilidadExtraTotal;
-		suerte = raza.getSuerteBase() + suerteExtraTotal;
-		defensa = raza.getDefensaBase() + defensaExtraTotal;
-		ataque = raza.getAtaqueBase() + ataqueExtraTotal;
+
+		this.salud = this.raza.getSaludBase() + saludExtraTotal;
+		this.stamana = this.raza.getStamanaBase() + stamanaExtraTotal;
+		this.agilidad = this.raza.getAgilidadBase() + agilidadExtraTotal;
+		this.suerte = this.raza.getSuerteBase() + suerteExtraTotal;
+		this.defensa = this.raza.getDefensaBase() + defensaExtraTotal;
+		this.ataque = this.raza.getAtaqueBase() + ataqueExtraTotal;
 	}
-	
+
 	public void agregarEfectoTemporal(Efecto efecto, int turnos) {
-		
+
 	}
-	
+
 	public void actualizarEfectos() {
-		
+
 	}
 
 	public int getNivel() {
@@ -125,46 +76,6 @@ public class Personaje {
 		this.xp = xp;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public String getTrasfondo() {
-		return trasfondo;
-	}
-
-	public int getSalud() {
-		return salud;
-	}
-
-	public int getStamana() {
-		return stamana;
-	}
-	
-	public int getSuerte() {
-		return suerte;
-	}
-
-	public int getAgilidad() {
-		return agilidad;
-	}
-
-	public int getDefensa() {
-		return defensa;
-	}
-
-	public int getAtaque() {
-		return ataque;
-	}
-
-	public Clase getClase() {
-		return clase;
-	}
-
-	public Raza getRaza() {
-		return raza;
-	}
-
 	public Inventario getInventario() {
 		return inventario;
 	}
@@ -172,7 +83,5 @@ public class Personaje {
 	public Map<Efecto, Integer> getEfectosTemporales() {
 		return efectosTemporales;
 	}
-	
-	
-	
+
 }

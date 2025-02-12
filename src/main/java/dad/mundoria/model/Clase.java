@@ -9,7 +9,7 @@ public class Clase {
 	private String resumen;
 	private String lema;
 	private List<Habilidad> habilidades;
-	
+
 	public Clase(int idClase, String nombre, String resumen, String lema, List<Habilidad> habilidades) {
 		super();
 		this.idClase = idClase;
@@ -38,9 +38,5 @@ public class Clase {
 	public List<Habilidad> getHabilidades() {
 		return habilidades;
 	}
-	
-	
-	
-	
-	
+
 }
