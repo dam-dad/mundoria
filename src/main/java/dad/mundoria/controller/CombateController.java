@@ -5,7 +5,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import dad.mundoria.model.Enemigo;
+import dad.mundoria.model.Habilidad;
+import dad.mundoria.model.Inventario;
 import dad.mundoria.model.Personaje;
+import dad.mundoria.model.SistemaDeCombate;
+import dad.mundoria.model.TurnoListener;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -17,13 +21,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 
-public class CombateController implements Initializable {
+public class CombateController implements Initializable, TurnoListener {
 
 	@FXML
 	private AnchorPane combateAnchorPane;
@@ -194,27 +199,173 @@ public class CombateController implements Initializable {
 	private GridPane statsGridPane;
 
 	@FXML
+	void onEnemigoSlot1Clicked(MouseEvent event) {
+
+		if (enemigo1 != null) {
+			enemigoSeleccionado = enemigo1;
+		} else {
+			System.err.println("ERROR: Enemigo es NULL");
+		}
+
+	}
+
+	@FXML
+	void onEnemigoSlot2Clicked(MouseEvent event) {
+
+		if (enemigo2 != null) {
+			enemigoSeleccionado = enemigo2;
+		} else {
+			System.err.println("ERROR: Enemigo es NULL");
+		}
+
+	}
+
+	@FXML
+	void onEnemigoSlot3Clicked(MouseEvent event) {
+
+		if (enemigo3 != null) {
+			enemigoSeleccionado = enemigo3;
+		} else {
+			System.err.println("ERROR: Enemigo es NULL");
+		}
+
+	}
+
+	@FXML
+	void onEnemigoSlot4Clicked(MouseEvent event) {
+
+		if (enemigo4 != null) {
+			enemigoSeleccionado = enemigo4;
+		} else {
+			System.err.println("ERROR: Enemigo es NULL");
+		}
+
+	}
+
+	@FXML
+	void onPersonajeSlot1Clicked(MouseEvent event) {
+
+		if (personaje1 != null) {
+			personajeSeleccionado = personaje1;
+			cargarDetalles(personaje1);
+			cargarHabilidades(personaje1.getClase().getHabilidades());
+		} else {
+			System.err.println("ERROR: Personaje es NULL");
+		}
+
+	}
+
+	@FXML
+	void onPersonajeSlot2Clicked(MouseEvent event) {
+
+		if (personaje2 != null) {
+			personajeSeleccionado = personaje2;
+			cargarDetalles(personaje2);
+			cargarHabilidades(personaje2.getClase().getHabilidades());
+		} else {
+			System.err.println("ERROR: Personaje es NULL");
+		}
+
+	}
+
+	@FXML
+	void onPersonajeSlot3Clicked(MouseEvent event) {
+
+		if (personaje3 != null) {
+			personajeSeleccionado = personaje3;
+			cargarDetalles(personaje3);
+			cargarHabilidades(personaje3.getClase().getHabilidades());
+		} else {
+			System.err.println("ERROR: Personaje es NULL");
+		}
+
+	}
+
+	@FXML
+	void onPersonajeSlot4Clicked(MouseEvent event) {
+
+		if (personaje4 != null) {
+			personajeSeleccionado = personaje4;
+			cargarDetalles(personaje4);
+			cargarHabilidades(personaje4.getClase().getHabilidades());
+		} else {
+			System.err.println("ERROR: Personaje es NULL");
+		}
+
+	}
+
+	@FXML
 	void onHabilidadSlot1(ActionEvent event) {
+		if (personajeSeleccionado == null) {
+			System.err.println("ERROR: Personaje seleccionado es NULL");
+		} else if (enemigoSeleccionado == null) {
+			System.err.println("ERROR: Enemigo seleccionado es NULL");
+		} else if (habilidad1 == null) {
+			System.err.println("ERROR: Habilidad seleccionada es NULL");
+		} else {
+			sistemaDeCombate.realizarAccion(personajeSeleccionado, enemigoSeleccionado, habilidad1);
+			sistemaDeCombate.procesarCombate();
+		}
 
 	}
 
 	@FXML
 	void onHabilidadSlot2(ActionEvent event) {
-
+		if (personajeSeleccionado == null) {
+			System.err.println("ERROR: Personaje seleccionado es NULL");
+		} else if (enemigoSeleccionado == null) {
+			System.err.println("ERROR: Enemigo seleccionado es NULL");
+		} else if (habilidad2 == null) {
+			System.err.println("ERROR: Habilidad seleccionada es NULL");
+		} else {
+			sistemaDeCombate.realizarAccion(personajeSeleccionado, enemigoSeleccionado, habilidad2);
+			sistemaDeCombate.procesarCombate();
+		}
 	}
 
 	@FXML
 	void onHabilidadSlot3(ActionEvent event) {
-
+		if (personajeSeleccionado == null) {
+			System.err.println("ERROR: Personaje seleccionado es NULL");
+		} else if (enemigoSeleccionado == null) {
+			System.err.println("ERROR: Enemigo seleccionado es NULL");
+		} else if (habilidad3 == null) {
+			System.err.println("ERROR: Habilidad seleccionada es NULL");
+		} else {
+			sistemaDeCombate.realizarAccion(personajeSeleccionado, enemigoSeleccionado, habilidad3);
+			sistemaDeCombate.procesarCombate();
+		}
 	}
 
 	@FXML
 	void onHabilidadSlot4(ActionEvent event) {
 
+		if (personajeSeleccionado == null) {
+			System.err.println("ERROR: Personaje seleccionado es NULL");
+		} else if (enemigoSeleccionado == null) {
+			System.err.println("ERROR: Enemigo seleccionado es NULL");
+		} else if (habilidad4 == null) {
+			System.err.println("ERROR: Habilidad seleccionada es NULL");
+		} else {
+			sistemaDeCombate.realizarAccion(personajeSeleccionado, enemigoSeleccionado, habilidad4);
+			sistemaDeCombate.procesarCombate();
+		}
+
 	}
 
 	@FXML
 	void onHabilidadSlot5(ActionEvent event) {
+
+		if (personajeSeleccionado == null) {
+			System.err.println("ERROR: Personaje seleccionado es NULL");
+		} else if (enemigoSeleccionado == null) {
+			System.err.println("ERROR: Enemigo seleccionado es NULL");
+		} else if (habilidad5 == null) {
+			System.err.println("ERROR: Habilidad seleccionada es NULL");
+		} else {
+			sistemaDeCombate.realizarAccion(personajeSeleccionado, enemigoSeleccionado, habilidad5);
+			sistemaDeCombate.procesarCombate();
+		}
 
 	}
 
@@ -222,7 +373,7 @@ public class CombateController implements Initializable {
 	void onInventarioAction(ActionEvent event) {
 
 	}
-	
+
 	private Personaje personaje1;
 	private int saludMaxima1;
 	private int saludActual1;
@@ -230,7 +381,7 @@ public class CombateController implements Initializable {
 	private int stamanaActual1;
 	private double progresoSalud1;
 	private double progresoStamana1;
-	
+
 	private Personaje personaje2;
 	private int saludMaxima2;
 	private int saludActual2;
@@ -238,7 +389,7 @@ public class CombateController implements Initializable {
 	private int stamanaActual2;
 	private double progresoSalud2;
 	private double progresoStamana2;
-	
+
 	private Personaje personaje3;
 	private int saludMaxima3;
 	private int saludActual3;
@@ -246,8 +397,7 @@ public class CombateController implements Initializable {
 	private int stamanaActual3;
 	private double progresoSalud3;
 	private double progresoStamana3;
-	
-	
+
 	private Personaje personaje4;
 	private int saludMaxima4;
 	private int saludActual4;
@@ -255,7 +405,7 @@ public class CombateController implements Initializable {
 	private int stamanaActual4;
 	private double progresoSalud4;
 	private double progresoStamana4;
-	
+
 	private Enemigo enemigo1;
 	private int saludMaximaE1;
 	private int saludActualE1;
@@ -263,7 +413,7 @@ public class CombateController implements Initializable {
 	private int stamanaActualE1;
 	private double progresoSaludE1;
 	private double progresoStamanaE1;
-	
+
 	private Enemigo enemigo2;
 	private int saludMaximaE2;
 	private int saludActualE2;
@@ -271,7 +421,7 @@ public class CombateController implements Initializable {
 	private int stamanaActualE2;
 	private double progresoSaludE2;
 	private double progresoStamanaE2;
-	
+
 	private Enemigo enemigo3;
 	private int saludMaximaE3;
 	private int saludActualE3;
@@ -279,7 +429,7 @@ public class CombateController implements Initializable {
 	private int stamanaActualE3;
 	private double progresoSaludE3;
 	private double progresoStamanaE3;
-	
+
 	private Enemigo enemigo4;
 	private int saludMaximaE4;
 	private int saludActualE4;
@@ -287,10 +437,49 @@ public class CombateController implements Initializable {
 	private int stamanaActualE4;
 	private double progresoSaludE4;
 	private double progresoStamanaE4;
-	
+
+	private Personaje personajeSeleccionado;
+	private Enemigo enemigoSeleccionado;
+
+	private Inventario inventarioActual;
+
+	private Habilidad habilidad1;
+	private Habilidad habilidad2;
+	private Habilidad habilidad3;
+	private Habilidad habilidad4;
+	private Habilidad habilidad5;
+
+	private SistemaDeCombate sistemaDeCombate;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// bindings
+
+		
+		
+	}
+
+	@Override
+	public void turnoJugador(Personaje personaje) {
+		// TODO Auto-generated method stub
+		// Desbloquear botones y demás...
+
+	}
+
+	@Override
+	public void turnoEnemigo() {
+		// TODO Auto-generated method stub
+		// Bloquear botones y demás...
+
+	}
+	
+	public void inicializarVista() {
+        actualizarSlotsPersonajes(sistemaDeCombate.getPersonajes());
+        actualizarSlotsEnemigos(sistemaDeCombate.getEnemigos());
+        configurarTimeline();
+    }
+	
+	public void configurarTimeline() {
 		
 		SimpleIntegerProperty saludWrapper1 = new SimpleIntegerProperty();
 		SimpleIntegerProperty saludWrapper2 = new SimpleIntegerProperty();
@@ -300,7 +489,7 @@ public class CombateController implements Initializable {
 		SimpleIntegerProperty saludWrapperE2 = new SimpleIntegerProperty();
 		SimpleIntegerProperty saludWrapperE3 = new SimpleIntegerProperty();
 		SimpleIntegerProperty saludWrapperE4 = new SimpleIntegerProperty();
-		
+
 		SimpleIntegerProperty stamanaWrapper1 = new SimpleIntegerProperty();
 		SimpleIntegerProperty stamanaWrapper2 = new SimpleIntegerProperty();
 		SimpleIntegerProperty stamanaWrapper3 = new SimpleIntegerProperty();
@@ -311,98 +500,123 @@ public class CombateController implements Initializable {
 		SimpleIntegerProperty stamanaWrapperE4 = new SimpleIntegerProperty();
 		
 		Timeline timeline = new Timeline(new KeyFrame(Duration.millis(100), event -> {
-		    saludWrapper1.set(personaje1.getSalud());
-		    stamanaWrapper1.set(personaje1.getStamana());
-		    saludActual1 = saludWrapper1.get();
-		    stamanaActual1 = stamanaWrapper1.get();
-		    progresoSalud1 = (double) saludActual1 / saludMaxima1;
-		    progresoStamana1 = (double) stamanaActual1 / stamanaMaxima1;
-		    
-		    saludPersonajeSlot1.setProgress(progresoSalud1);
-		    stamanaPersonajeSlot1.setProgress(progresoStamana1);
-		    
-		    saludWrapper2.set(personaje2.getSalud());
-		    stamanaWrapper2.set(personaje2.getStamana());
-		    saludActual2 = saludWrapper2.get();
-		    stamanaActual2 = stamanaWrapper2.get();
-		    progresoSalud2 = (double) saludActual2 / saludMaxima2;
-		    progresoStamana2 = (double) stamanaActual2 / stamanaMaxima2;
-		    
-		    saludPersonajeSlot2.setProgress(progresoSalud2);
-		    stamanaPersonajeSlot2.setProgress(progresoStamana2);
-		    
-		    saludWrapper3.set(personaje3.getSalud());
-		    stamanaWrapper3.set(personaje3.getStamana());
-		    saludActual3 = saludWrapper3.get();
-		    stamanaActual3 = stamanaWrapper3.get();
-		    progresoSalud3 = (double) saludActual3 / saludMaxima3;
-		    progresoStamana3 = (double) stamanaActual3 / stamanaMaxima3;
-		    
-		    saludPersonajeSlot3.setProgress(progresoSalud3);
-		    stamanaPersonajeSlot3.setProgress(progresoStamana3);
-		    
-		    saludWrapper4.set(personaje4.getSalud());
-		    stamanaWrapper4.set(personaje4.getStamana());
-		    saludActual4 = saludWrapper4.get();
-		    stamanaActual4 = stamanaWrapper4.get();
-		    progresoSalud4 = (double) saludActual4 / saludMaxima4;
-		    progresoStamana4 = (double) stamanaActual4 / stamanaMaxima4;
-		    
-		    saludPersonajeSlot4.setProgress(progresoSalud4);
-		    stamanaPersonajeSlot4.setProgress(progresoStamana4);
-		    
-		    saludWrapperE1.set(enemigo1.getSalud());
-		    stamanaWrapperE1.set(enemigo1.getSalud());
-		    saludActualE1 = saludWrapperE1.get();
-		    stamanaActualE1 = stamanaWrapperE1.get();
-		    progresoSaludE1 = (double) saludActualE1 / saludMaximaE1;
-		    progresoStamanaE1 = (double) stamanaActualE1 / stamanaActualE1;
-		    
-		    saludEnemigoSlot1.setProgress(progresoSaludE1);
-		    stamanaEnemigoSlot1.setProgress(progresoStamanaE1);
-		    
-		    saludWrapperE2.set(enemigo2.getSalud());
-		    stamanaWrapperE2.set(enemigo2.getStamana());
-		    saludActualE2 = saludWrapperE2.get();
-		    stamanaActualE2 = stamanaWrapperE2.get();
-		    progresoSaludE2 = (double) saludActualE2 / saludMaximaE2;
-		    progresoStamanaE2 = (double) stamanaActualE2 / stamanaMaximaE2;
-		    
-		    saludEnemigoSlot2.setProgress(progresoSaludE2);
-		    stamanaEnemigoSlot2.setProgress(progresoStamanaE2);
-		    
-		    saludWrapperE3.set(enemigo3.getSalud());
-		    stamanaWrapperE3.set(enemigo3.getStamana());
-		    saludActualE3 = saludWrapperE3.get();
-		    stamanaActualE3 = stamanaWrapperE3.get();
-		    progresoSaludE3 = (double) saludActualE3 / saludMaximaE3;
-		    progresoStamanaE3 = (double) stamanaActualE3 / stamanaMaximaE3;
-		    
-		    saludEnemigoSlot3.setProgress(progresoSaludE3);
-		    stamanaEnemigoSlot3.setProgress(progresoStamanaE3);
-		    
-		    saludWrapperE4.set(enemigo4.getSalud());
-		    stamanaWrapperE4.set(enemigo4.getSalud());
-		    saludActualE4 = saludWrapperE4.get();
-		    stamanaActualE4 = stamanaWrapperE4.get();
-		    progresoSaludE4 = (double) saludActualE4 / saludMaximaE4;
-		    progresoStamanaE4 = (double) stamanaActualE4 / stamanaMaximaE4;
-		    
-		    saludEnemigoSlot4.setProgress(progresoSaludE4);
-		    stamanaEnemigoSlot4.setProgress(progresoStamanaE4);
-		    
+			if (personaje1 != null) {
+				saludWrapper1.set(personaje1.getSalud());
+				stamanaWrapper1.set(personaje1.getStamana());
+				saludActual1 = saludWrapper1.get();
+				stamanaActual1 = stamanaWrapper1.get();
+				progresoSalud1 = (double) saludActual1 / saludMaxima1;
+				progresoStamana1 = (double) stamanaActual1 / stamanaMaxima1;
+
+				saludPersonajeSlot1.setProgress(progresoSalud1);
+				stamanaPersonajeSlot1.setProgress(progresoStamana1);
+
+			}
+
+			if (personaje2 != null) {
+				saludWrapper2.set(personaje2.getSalud());
+				stamanaWrapper2.set(personaje2.getStamana());
+				saludActual2 = saludWrapper2.get();
+				stamanaActual2 = stamanaWrapper2.get();
+				progresoSalud2 = (double) saludActual2 / saludMaxima2;
+				progresoStamana2 = (double) stamanaActual2 / stamanaMaxima2;
+
+				saludPersonajeSlot2.setProgress(progresoSalud2);
+				stamanaPersonajeSlot2.setProgress(progresoStamana2);
+
+			}
+
+			if (personaje3 != null) {
+				saludWrapper3.set(personaje3.getSalud());
+				stamanaWrapper3.set(personaje3.getStamana());
+				saludActual3 = saludWrapper3.get();
+				stamanaActual3 = stamanaWrapper3.get();
+				progresoSalud3 = (double) saludActual3 / saludMaxima3;
+				progresoStamana3 = (double) stamanaActual3 / stamanaMaxima3;
+
+				saludPersonajeSlot3.setProgress(progresoSalud3);
+				stamanaPersonajeSlot3.setProgress(progresoStamana3);
+
+			}
+
+			if (personaje4 != null) {
+				saludWrapper4.set(personaje4.getSalud());
+				stamanaWrapper4.set(personaje4.getStamana());
+				saludActual4 = saludWrapper4.get();
+				stamanaActual4 = stamanaWrapper4.get();
+				progresoSalud4 = (double) saludActual4 / saludMaxima4;
+				progresoStamana4 = (double) stamanaActual4 / stamanaMaxima4;
+
+				saludPersonajeSlot4.setProgress(progresoSalud4);
+				stamanaPersonajeSlot4.setProgress(progresoStamana4);
+
+			}
+
+			if (enemigo1 != null) {
+				saludWrapperE1.set(enemigo1.getSalud());
+				stamanaWrapperE1.set(enemigo1.getStamana());
+				saludActualE1 = saludWrapperE1.get();
+				stamanaActualE1 = stamanaWrapperE1.get();
+				progresoSaludE1 = (double) saludActualE1 / saludMaximaE1;
+				progresoStamanaE1 = (double) stamanaActualE1 / stamanaMaximaE1;
+
+				saludEnemigoSlot1.setProgress(progresoSaludE1);
+				stamanaEnemigoSlot1.setProgress(progresoStamanaE1);
+
+			}
+
+			if (enemigo2 != null) {
+				saludWrapperE2.set(enemigo2.getSalud());
+				stamanaWrapperE2.set(enemigo2.getStamana());
+				saludActualE2 = saludWrapperE2.get();
+				stamanaActualE2 = stamanaWrapperE2.get();
+				progresoSaludE2 = (double) saludActualE2 / saludMaximaE2;
+				progresoStamanaE2 = (double) stamanaActualE2 / stamanaMaximaE2;
+
+				saludEnemigoSlot2.setProgress(progresoSaludE2);
+				stamanaEnemigoSlot2.setProgress(progresoStamanaE2);
+
+			}
+
+			if (enemigo3 != null) {
+				saludWrapperE3.set(enemigo3.getSalud());
+				stamanaWrapperE3.set(enemigo3.getStamana());
+				saludActualE3 = saludWrapperE3.get();
+				stamanaActualE3 = stamanaWrapperE3.get();
+				progresoSaludE3 = (double) saludActualE3 / saludMaximaE3;
+				progresoStamanaE3 = (double) stamanaActualE3 / stamanaMaximaE3;
+
+				saludEnemigoSlot3.setProgress(progresoSaludE3);
+				stamanaEnemigoSlot3.setProgress(progresoStamanaE3);
+
+			}
+
+			if (enemigo4 != null) {
+				saludWrapperE4.set(enemigo4.getSalud());
+				stamanaWrapperE4.set(enemigo4.getStamana());
+				saludActualE4 = saludWrapperE4.get();
+				stamanaActualE4 = stamanaWrapperE4.get();
+				progresoSaludE4 = (double) saludActualE4 / saludMaximaE4;
+				progresoStamanaE4 = (double) stamanaActualE4 / stamanaMaximaE4;
+
+				saludEnemigoSlot4.setProgress(progresoSaludE4);
+				stamanaEnemigoSlot4.setProgress(progresoStamanaE4);
+
+			}
+
 		}));
 		timeline.setCycleCount(Animation.INDEFINITE);
 		timeline.play();
 		
 	}
-	
-	//Este método lo que hace resumidamente es obtener una lista de personajes
-	//para con un switch calcular el tamaño de la lista y actuar en consecuencia.
-	//Si hay 1 personaje, activa 1 slot. Si hay 2 personajes activa dos slots
-	//y así consecutivamente. Es un método pensado para llamarse una vez por combate.
+
+	// Este método lo que hace resumidamente es obtener una lista de personajes
+	// para con un switch calcular el tamaño de la lista y actuar en consecuencia.
+	// Si hay 1 personaje, activa 1 slot. Si hay 2 personajes activa dos slots
+	// y así consecutivamente. Es un método pensado para llamarse una vez por
+	// combate.
 	public void actualizarSlotsPersonajes(List<Personaje> listaPersonajes) {
-		
+
 		switch (listaPersonajes.size()) {
 		case 1:
 			personaje1 = listaPersonajes.get(0);
@@ -410,14 +624,14 @@ public class CombateController implements Initializable {
 			saludActual1 = saludMaxima1;
 			stamanaMaxima1 = personaje1.getStamana();
 			stamanaActual1 = stamanaMaxima1;
-			
+
 			personajeSlot1.setVisible(true);
 			nombrePersonajeSlot1.setText(personaje1.getNombre());
 			saludPersonajeSlot1.setProgress(1);
 			progresoSalud1 = 1;
 			stamanaPersonajeSlot1.setProgress(1);
 			progresoStamana1 = 1;
-			
+
 			break;
 		case 2:
 			personaje1 = listaPersonajes.get(0);
@@ -425,27 +639,27 @@ public class CombateController implements Initializable {
 			saludActual1 = saludMaxima1;
 			stamanaMaxima1 = personaje1.getStamana();
 			stamanaActual1 = stamanaMaxima1;
-			
+
 			personajeSlot1.setVisible(true);
 			nombrePersonajeSlot1.setText(personaje1.getNombre());
 			saludPersonajeSlot1.setProgress(1);
 			progresoSalud1 = 1;
 			stamanaPersonajeSlot1.setProgress(1);
 			progresoStamana1 = 1;
-			
+
 			personaje2 = listaPersonajes.get(1);
 			saludMaxima2 = personaje2.getSalud();
 			saludActual2 = saludMaxima2;
 			stamanaMaxima2 = personaje2.getStamana();
 			stamanaActual2 = stamanaMaxima2;
-			
+
 			personajeSlot2.setVisible(true);
 			nombrePersonajeSlot2.setText(personaje2.getNombre());
 			saludPersonajeSlot2.setProgress(1);
 			progresoSalud2 = 1;
 			stamanaPersonajeSlot2.setProgress(1);
 			progresoStamana2 = 1;
-			
+
 			break;
 		case 3:
 			personaje1 = listaPersonajes.get(0);
@@ -453,40 +667,40 @@ public class CombateController implements Initializable {
 			saludActual1 = saludMaxima1;
 			stamanaMaxima1 = personaje1.getStamana();
 			stamanaActual1 = stamanaMaxima1;
-			
+
 			personajeSlot1.setVisible(true);
 			nombrePersonajeSlot1.setText(personaje1.getNombre());
 			saludPersonajeSlot1.setProgress(1);
 			progresoSalud1 = 1;
 			stamanaPersonajeSlot1.setProgress(1);
 			progresoStamana1 = 1;
-			
+
 			personaje2 = listaPersonajes.get(1);
 			saludMaxima2 = personaje2.getSalud();
 			saludActual2 = saludMaxima2;
 			stamanaMaxima2 = personaje2.getStamana();
 			stamanaActual2 = stamanaMaxima2;
-			
+
 			personajeSlot2.setVisible(true);
 			nombrePersonajeSlot2.setText(personaje2.getNombre());
 			saludPersonajeSlot2.setProgress(1);
 			progresoSalud2 = 1;
 			stamanaPersonajeSlot2.setProgress(1);
 			progresoStamana2 = 1;
-			
+
 			personaje3 = listaPersonajes.get(2);
 			saludMaxima3 = personaje3.getSalud();
 			saludActual3 = saludMaxima3;
 			stamanaMaxima3 = personaje3.getStamana();
 			stamanaActual3 = stamanaMaxima3;
-			
+
 			personajeSlot3.setVisible(true);
 			nombrePersonajeSlot3.setText(personaje3.getNombre());
 			saludPersonajeSlot3.setProgress(1);
 			progresoSalud3 = 1;
 			stamanaPersonajeSlot3.setProgress(1);
 			progresoStamana3 = 1;
-			
+
 			break;
 		case 4:
 			personaje1 = listaPersonajes.get(0);
@@ -494,76 +708,76 @@ public class CombateController implements Initializable {
 			saludActual1 = saludMaxima1;
 			stamanaMaxima1 = personaje1.getStamana();
 			stamanaActual1 = stamanaMaxima1;
-			
+
 			personajeSlot1.setVisible(true);
 			nombrePersonajeSlot1.setText(personaje1.getNombre());
 			saludPersonajeSlot1.setProgress(1);
 			progresoSalud1 = 1;
 			stamanaPersonajeSlot1.setProgress(1);
 			progresoStamana1 = 1;
-			
+
 			personaje2 = listaPersonajes.get(1);
 			saludMaxima2 = personaje2.getSalud();
 			saludActual2 = saludMaxima2;
 			stamanaMaxima2 = personaje2.getStamana();
 			stamanaActual2 = stamanaMaxima2;
-			
+
 			personajeSlot2.setVisible(true);
 			nombrePersonajeSlot2.setText(personaje2.getNombre());
 			saludPersonajeSlot2.setProgress(1);
 			progresoSalud2 = 1;
 			stamanaPersonajeSlot2.setProgress(1);
 			progresoStamana2 = 1;
-			
+
 			personaje3 = listaPersonajes.get(2);
 			saludMaxima3 = personaje3.getSalud();
 			saludActual3 = saludMaxima3;
 			stamanaMaxima3 = personaje3.getStamana();
 			stamanaActual3 = stamanaMaxima3;
-			
+
 			personajeSlot3.setVisible(true);
 			nombrePersonajeSlot3.setText(personaje3.getNombre());
 			saludPersonajeSlot3.setProgress(1);
 			progresoSalud3 = 1;
 			stamanaPersonajeSlot3.setProgress(1);
 			progresoStamana3 = 1;
-			
+
 			personaje4 = listaPersonajes.get(3);
 			saludMaxima4 = personaje4.getSalud();
 			saludActual4 = saludMaxima4;
 			stamanaMaxima4 = personaje4.getStamana();
 			stamanaActual4 = stamanaMaxima4;
-			
+
 			personajeSlot4.setVisible(true);
 			nombrePersonajeSlot4.setText(personaje4.getNombre());
 			saludPersonajeSlot4.setProgress(1);
 			progresoSalud4 = 1;
 			stamanaPersonajeSlot4.setProgress(1);
 			progresoStamana4 = 1;
-			
+
 			break;
 		}
-		
+
 	}
-	
-	//Funciona igual que actualizarSlotsPersonajes.
+
+	// Funciona igual que actualizarSlotsPersonajes.
 	public void actualizarSlotsEnemigos(List<Enemigo> listaEnemigos) {
-		
-		switch(listaEnemigos.size()) {
+
+		switch (listaEnemigos.size()) {
 		case 1:
 			enemigo1 = listaEnemigos.get(0);
 			saludMaximaE1 = enemigo1.getSalud();
 			saludActualE1 = saludMaximaE1;
 			stamanaMaximaE1 = enemigo1.getStamana();
 			stamanaActualE1 = stamanaMaximaE1;
-			
+
 			enemigoSlot1.setVisible(true);
 			nombreEnemigoSlot1.setText(enemigo1.getNombre());
 			saludEnemigoSlot1.setProgress(1);
 			progresoSaludE1 = 1;
 			stamanaEnemigoSlot1.setProgress(1);
 			progresoStamanaE1 = 1;
-			
+
 			break;
 		case 2:
 			enemigo1 = listaEnemigos.get(0);
@@ -571,27 +785,27 @@ public class CombateController implements Initializable {
 			saludActualE1 = saludMaximaE1;
 			stamanaMaximaE1 = enemigo1.getStamana();
 			stamanaActualE1 = stamanaMaximaE1;
-			
+
 			enemigoSlot1.setVisible(true);
 			nombreEnemigoSlot1.setText(enemigo1.getNombre());
 			saludEnemigoSlot1.setProgress(1);
 			progresoSaludE1 = 1;
 			stamanaEnemigoSlot1.setProgress(1);
 			progresoStamanaE1 = 1;
-			
+
 			enemigo2 = listaEnemigos.get(1);
 			saludMaximaE2 = enemigo2.getSalud();
 			saludActualE2 = saludMaximaE2;
 			stamanaMaximaE2 = enemigo2.getStamana();
 			stamanaActualE2 = stamanaMaximaE2;
-			
+
 			enemigoSlot2.setVisible(true);
 			nombreEnemigoSlot2.setText(enemigo2.getNombre());
 			saludEnemigoSlot2.setProgress(1);
 			progresoSaludE2 = 1;
 			stamanaEnemigoSlot2.setProgress(1);
 			progresoStamanaE2 = 1;
-			
+
 			break;
 		case 3:
 			enemigo1 = listaEnemigos.get(0);
@@ -599,40 +813,40 @@ public class CombateController implements Initializable {
 			saludActualE1 = saludMaximaE1;
 			stamanaMaximaE1 = enemigo1.getStamana();
 			stamanaActualE1 = stamanaMaximaE1;
-			
+
 			enemigoSlot1.setVisible(true);
 			nombreEnemigoSlot1.setText(enemigo1.getNombre());
 			saludEnemigoSlot1.setProgress(1);
 			progresoSaludE1 = 1;
 			stamanaEnemigoSlot1.setProgress(1);
 			progresoStamanaE1 = 1;
-			
+
 			enemigo2 = listaEnemigos.get(1);
 			saludMaximaE2 = enemigo2.getSalud();
 			saludActualE2 = saludMaximaE2;
 			stamanaMaximaE2 = enemigo2.getStamana();
 			stamanaActualE2 = stamanaMaximaE2;
-			
+
 			enemigoSlot2.setVisible(true);
 			nombreEnemigoSlot2.setText(enemigo2.getNombre());
 			saludEnemigoSlot2.setProgress(1);
 			progresoSaludE2 = 1;
 			stamanaEnemigoSlot2.setProgress(1);
 			progresoStamanaE2 = 1;
-			
+
 			enemigo3 = listaEnemigos.get(2);
 			saludMaximaE3 = enemigo3.getSalud();
 			saludActualE3 = saludMaximaE3;
 			stamanaMaximaE3 = enemigo3.getStamana();
 			stamanaActualE3 = stamanaMaximaE3;
-			
+
 			enemigoSlot3.setVisible(true);
 			nombreEnemigoSlot3.setText(enemigo3.getNombre());
 			saludEnemigoSlot3.setProgress(1);
 			progresoSaludE3 = 1;
 			stamanaEnemigoSlot3.setProgress(1);
 			progresoStamanaE3 = 1;
-			
+
 			break;
 		case 4:
 			enemigo1 = listaEnemigos.get(0);
@@ -640,56 +854,105 @@ public class CombateController implements Initializable {
 			saludActualE1 = saludMaximaE1;
 			stamanaMaximaE1 = enemigo1.getStamana();
 			stamanaActualE1 = stamanaMaximaE1;
-			
+
 			enemigoSlot1.setVisible(true);
 			nombreEnemigoSlot1.setText(enemigo1.getNombre());
 			saludEnemigoSlot1.setProgress(1);
 			progresoSaludE1 = 1;
 			stamanaEnemigoSlot1.setProgress(1);
 			progresoStamanaE1 = 1;
-			
+
 			enemigo2 = listaEnemigos.get(1);
 			saludMaximaE2 = enemigo2.getSalud();
 			saludActualE2 = saludMaximaE2;
 			stamanaMaximaE2 = enemigo2.getStamana();
 			stamanaActualE2 = stamanaMaximaE2;
-			
+
 			enemigoSlot2.setVisible(true);
 			nombreEnemigoSlot2.setText(enemigo2.getNombre());
 			saludEnemigoSlot2.setProgress(1);
 			progresoSaludE2 = 1;
 			stamanaEnemigoSlot2.setProgress(1);
 			progresoStamanaE2 = 1;
-			
+
 			enemigo3 = listaEnemigos.get(2);
 			saludMaximaE3 = enemigo3.getSalud();
 			saludActualE3 = saludMaximaE3;
 			stamanaMaximaE3 = enemigo3.getStamana();
 			stamanaActualE3 = stamanaMaximaE3;
-			
+
 			enemigoSlot3.setVisible(true);
 			nombreEnemigoSlot3.setText(enemigo3.getNombre());
 			saludEnemigoSlot3.setProgress(1);
 			progresoSaludE3 = 1;
 			stamanaEnemigoSlot3.setProgress(1);
 			progresoStamanaE3 = 1;
-			
+
 			enemigo4 = listaEnemigos.get(3);
 			saludMaximaE4 = enemigo4.getSalud();
 			saludActualE4 = saludMaximaE4;
 			stamanaMaximaE4 = enemigo4.getStamana();
 			stamanaActualE4 = stamanaMaximaE4;
-			
+
 			enemigoSlot4.setVisible(true);
 			nombreEnemigoSlot4.setText(enemigo4.getNombre());
 			saludEnemigoSlot4.setProgress(1);
 			progresoSaludE4 = 1;
 			stamanaEnemigoSlot4.setProgress(1);
 			progresoStamanaE4 = 1;
-			
+
 			break;
 		}
-		
+
+	}
+
+	public void cargarDetalles(Personaje personaje) {
+
+		detallesNombreLabel.setText(personaje.getNombre());
+		detallesClaseLabel.setText(personaje.getClase().getNombre());
+		detallesSaludLabel.setText(String.valueOf(personaje.getSalud()));
+		detallesStamanaLabel.setText(String.valueOf(personaje.getStamana()));
+		detallesAgilidadLabel.setText(String.valueOf(personaje.getAgilidad()));
+		detallesSuerteLabel.setText(String.valueOf(personaje.getSuerte()));
+		detallesDefensaLabel.setText(String.valueOf(personaje.getDefensa()));
+		detallesAtaqueLabel.setText(String.valueOf(personaje.getAtaque()));
+		inventarioActual = personaje.getInventario();
+
+	}
+
+	public void cargarHabilidades(List<Habilidad> listaHabilidades) {
+
+		habilidad1 = listaHabilidades.get(0);
+		habilidad2 = listaHabilidades.get(1);
+		habilidad3 = listaHabilidades.get(2);
+		habilidad4 = listaHabilidades.get(3);
+		habilidad5 = listaHabilidades.get(4);
+
+		habilidadButtonSlot1.setText(habilidad1.getNombre());
+		habilidadButtonSlot2.setText(habilidad2.getNombre());
+		habilidadButtonSlot3.setText(habilidad3.getNombre());
+		habilidadButtonSlot4.setText(habilidad4.getNombre());
+		habilidadButtonSlot5.setText(habilidad5.getNombre());
+	}
+
+	public HBox getEnemigosListaHBox() {
+		return enemigosListaHBox;
+	}
+
+	public HBox getPersonajesListaHBox() {
+		return personajesListaHBox;
+	}
+
+	public BorderPane getRoot() {
+		return root;
+	}
+
+	public Enemigo getEnemigoSeleccionado() {
+		return enemigoSeleccionado;
+	}
+
+	public void setSistemaDeCombate(SistemaDeCombate sistemaDeCombate) {
+		this.sistemaDeCombate = sistemaDeCombate;
 	}
 
 }

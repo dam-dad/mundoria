@@ -20,7 +20,7 @@
          <children>
             <HBox fx:id="enemigosListaHBox" alignment="CENTER" layoutX="440.0" prefHeight="127.0" prefWidth="879.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <AnchorPane fx:id="enemigoSlot4" prefHeight="200.0" prefWidth="200.0" visible="false">
+                  <AnchorPane fx:id="enemigoSlot4" onMouseClicked="#onEnemigoSlot4Clicked" prefHeight="200.0" prefWidth="200.0" visible="false">
                      <children>
                         <VBox alignment="CENTER" layoutX="26.0" layoutY="-42.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <children>
@@ -38,7 +38,7 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="enemigoSlot3" prefHeight="200.0" prefWidth="200.0" visible="false">
+                  <AnchorPane fx:id="enemigoSlot3" onMouseClicked="#onEnemigoSlot3Clicked" prefHeight="200.0" prefWidth="200.0" visible="false">
                      <children>
                         <VBox alignment="CENTER" layoutX="26.0" layoutY="-42.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <children>
@@ -56,7 +56,7 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="enemigoSlot2" prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane fx:id="enemigoSlot2" onMouseClicked="#onEnemigoSlot2Clicked" prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <VBox alignment="CENTER" layoutX="26.0" layoutY="-42.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <children>
@@ -74,7 +74,7 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="enemigoSlot1" prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane fx:id="enemigoSlot1" onMouseClicked="#onEnemigoSlot1Clicked" prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <VBox alignment="CENTER" layoutX="26.0" layoutY="-42.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <children>
@@ -95,7 +95,7 @@
                </children></HBox>
             <HBox fx:id="personajesListaHBox" alignment="CENTER" layoutX="440.0" layoutY="620.0" prefHeight="127.0" prefWidth="879.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
-                  <AnchorPane fx:id="personajeSlot4" prefHeight="200.0" prefWidth="200.0" visible="false">
+                  <AnchorPane fx:id="personajeSlot4" onMouseClicked="#onPersonajeSlot4Clicked" prefHeight="200.0" prefWidth="200.0" visible="false">
                      <children>
                         <VBox alignment="CENTER" layoutX="26.0" layoutY="-42.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <children>
@@ -113,7 +113,7 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="personajeSlot3" prefHeight="200.0" prefWidth="200.0" visible="false">
+                  <AnchorPane fx:id="personajeSlot3" onMouseClicked="#onPersonajeSlot3Clicked" prefHeight="200.0" prefWidth="200.0" visible="false">
                      <children>
                         <VBox alignment="CENTER" layoutX="26.0" layoutY="-42.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <children>
@@ -131,7 +131,7 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="personajeSlot2" prefHeight="200.0" prefWidth="200.0" visible="false">
+                  <AnchorPane fx:id="personajeSlot2" onMouseClicked="#onPersonajeSlot2Clicked" prefHeight="200.0" prefWidth="200.0" visible="false">
                      <children>
                         <VBox alignment="CENTER" layoutX="26.0" layoutY="-42.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <children>
@@ -149,7 +149,7 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="personajeSlot1" prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane fx:id="personajeSlot1" onMouseClicked="#onPersonajeSlot1Clicked" prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <VBox alignment="CENTER" layoutX="26.0" layoutY="-42.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <children>

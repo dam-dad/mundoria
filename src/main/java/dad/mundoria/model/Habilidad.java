@@ -70,8 +70,14 @@ public class Habilidad {
 		if (actor.getStamana() >= costeStamana) {
 			actor.modificarEstadistica("stamana", -costeStamana);
 
-			for (Efecto efecto : efectos) {
-				efecto.aplicarEfecto(objetivo, modificador);
+			if (efectos == null) {
+				objetivo.modificarEstadistica("salud", -30 + modificador); // TODO Esto es solo para prueba, se debería cambiar en el futuro.
+				System.out.println("Se le ha modificado la estadística salud a`" + objetivo.getNombre()+ " con un valor de " + -30+modificador);
+			} else {
+
+				for (Efecto efecto : efectos) {
+					efecto.aplicarEfecto(objetivo, modificador);
+				}
 			}
 
 		} else {

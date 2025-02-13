@@ -43,7 +43,7 @@ public class SistemaDeCombate {
 
 	public void procesarCombate() {
 		if (resolverCombate()) {
-			// TODO Lógica para final de combate.
+			System.out.println("COMBATE FINALIZADO.");
 			return;
 		}
 
@@ -53,11 +53,11 @@ public class SistemaDeCombate {
 			Enemigo enemigo = (Enemigo) entidad;
 			Entidad objetivo = enemigo.elegirObjetivo(entidades); // Es estrictamente necesario llamar a elegirObjetivo
 																	// antes de llamar a elegirHabilidad
+			System.out.println("El objetivo del enemigo es: " + objetivo.getNombre());
 			Habilidad habilidad = enemigo.elegirHabilidad();
+			System.out.println("La habilidad del enemigo es: " + habilidad.getNombre());
 			realizarAccion(enemigo, objetivo, habilidad);
-			controlTurnos.avanzarTurno();
 			listener.turnoEnemigo();
-			procesarCombate();
 		} else if (entidad instanceof Personaje) {
 			// Pausar el combate y esperar a la entrada del jugador.
 			listener.turnoJugador((Personaje) entidad);
@@ -113,12 +113,15 @@ public class SistemaDeCombate {
 
 		if (tiradaAtacante > tiradaAtacado) {
 			tiradaDaño = dado6.lanzar();
+			System.out.println("Se va a usar habilidad " + habilidadElegida.getNombre() + " de " + atacante.getNombre() + " contra " + atacado.getNombre());
 			habilidadElegida.usarHabilidad(atacante, atacado, tiradaDaño);
 
 		} else {
 			atacante.modificarEstadistica("stamana", -habilidadElegida.getCosteStamana());
 			atacado.evadir();
 		}
+		
+		controlTurnos.avanzarTurno();
 
 	}
 
