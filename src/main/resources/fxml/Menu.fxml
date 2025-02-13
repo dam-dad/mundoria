@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="root" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <HBox alignment="CENTER" spacing="10">
+            <children>
+                <Label text="MUNDORIA">
+                    <font>
+                        <Font name="Papyrus" size="85.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="15" alignment="CENTER">
+            <children>
+                <Button fx:id="nuevaPartidaButton" text="Nueva Partida" prefWidth="200" onAction="#onNuevaPartida" />
+                <Button fx:id="continuarPartidaButton" text="Cargar Partida" prefWidth="200" onAction="#onContinuarPartida" />
+                <Button fx:id="historiaButton" text="Historias" prefWidth="200" onAction="#onHistoria" />
+                <Button fx:id="ajustesButton" text="Ajustes" prefWidth="200" onAction="#onAjustes" />
+                <Button fx:id="salirButton" text="Salir" prefWidth="200" onAction="#onSalir" />
+            </children>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER" spacing="10">
+            <children>
+                <Label text="Versión 0.0">
+                    <font>
+                        <Font name="Bell MT" size="14.0" />
+                    </font>
+                </Label>
+                <Region HBox.hgrow="ALWAYS" />
+                <Label text="Jarod Peña Castro y Joel Gómez Salgado">
+                    <font>
+                        <Font name="Bell MT" size="13.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>
