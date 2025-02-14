@@ -15,7 +15,7 @@ public class MundorIApp extends Application {
 		
 		Stage mundoriaStage = new Stage();
 		mundoriaStage.getIcons().add(new Image(getClass().getResourceAsStream("/images/icono.png")));
-		mundoriaStage.setTitle("MUNDORIA");
+		mundoriaStage.setTitle("MundorIA");
         mundoriaStage.setScene(new Scene(menuController.getRoot()));
         mundoriaStage.show();
 		
