@@ -4,7 +4,7 @@ public class Efecto {
 
 	public enum TipoEfecto {
 
-		CURACION("Este efecto aumentará la salud del objetivo"), DAÑO("Este efecto disminuirá la salud del objtivo"),
+		CURACION("Este efecto aumentará la salud del objetivo"), DAÑO("Este efecto disminuirá la salud del objetivo"),
 		STUN("Este efecto hará que el objetivo pierda un número de turnos"),
 		PROTECCION("Este efecto evitará el daño al objetivo un número de turnos"),
 		LLAMADA("Este efecto hará que los enemigos centren sus ataques en quien lo hace");

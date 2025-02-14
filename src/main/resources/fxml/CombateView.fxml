@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="root" maxHeight="720.0" maxWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dad.mundoria.controller.CombateController">
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dad.mundoria.controller.CombateController">
    <center>
       <AnchorPane fx:id="combateAnchorPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -175,7 +176,10 @@
    <right>
       <AnchorPane fx:id="detallesAnchorPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="detallesImageView" fitHeight="134.0" fitWidth="161.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0" />
+            <ImageView fx:id="detallesImageView" fitHeight="134.0" fitWidth="161.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
+               <image>
+                  <Image url="@../images/user.png" />
+               </image></ImageView>
             <Label fx:id="detallesClaseLabel" alignment="CENTER" layoutX="20.0" layoutY="149.0" text="Clase" textAlignment="CENTER" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                <font>
                   <Font size="16.0" />
@@ -229,27 +233,27 @@
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="detallesSaludLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Label fx:id="detallesSaludLabel" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="detallesStamanaLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Label fx:id="detallesStamanaLabel" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="detallesAgilidadLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Label fx:id="detallesAgilidadLabel" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="detallesSuerteLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <Label fx:id="detallesSuerteLabel" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="detallesDefensaLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <Label fx:id="detallesDefensaLabel" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="detallesAtaqueLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <Label fx:id="detallesAtaqueLabel" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
@@ -264,11 +268,11 @@
          <children>
             <HBox fx:id="listaHabilidadesHBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                <children>
-                  <Button fx:id="habilidadButtonSlot5" mnemonicParsing="false" onAction="#onHabilidadSlot5" prefHeight="80.0" prefWidth="200.0" text="NombreHabilidad" />
-                  <Button fx:id="habilidadButtonSlot4" mnemonicParsing="false" onAction="#onHabilidadSlot4" prefHeight="80.0" prefWidth="200.0" text="NombreHabilidad" />
-                  <Button fx:id="habilidadButtonSlot3" mnemonicParsing="false" onAction="#onHabilidadSlot3" prefHeight="80.0" prefWidth="200.0" text="NombreHabilidad" />
-                  <Button fx:id="habilidadButtonSlot2" mnemonicParsing="false" onAction="#onHabilidadSlot2" prefHeight="80.0" prefWidth="200.0" text="NombreHabilidad" />
-                  <Button fx:id="habilidadButtonSlot1" mnemonicParsing="false" onAction="#onHabilidadSlot1" prefHeight="80.0" prefWidth="200.0" text="NombreHabilidad" />
+                  <Button fx:id="habilidadButtonSlot5" disable="true" mnemonicParsing="false" onAction="#onHabilidadSlot5" prefHeight="80.0" prefWidth="200.0" text="NombreHabilidad" />
+                  <Button fx:id="habilidadButtonSlot4" disable="true" mnemonicParsing="false" onAction="#onHabilidadSlot4" prefHeight="80.0" prefWidth="200.0" text="NombreHabilidad" />
+                  <Button fx:id="habilidadButtonSlot3" disable="true" mnemonicParsing="false" onAction="#onHabilidadSlot3" prefHeight="80.0" prefWidth="200.0" text="NombreHabilidad" />
+                  <Button fx:id="habilidadButtonSlot2" disable="true" mnemonicParsing="false" onAction="#onHabilidadSlot2" prefHeight="80.0" prefWidth="200.0" text="NombreHabilidad" />
+                  <Button fx:id="habilidadButtonSlot1" disable="true" mnemonicParsing="false" onAction="#onHabilidadSlot1" prefHeight="80.0" prefWidth="200.0" text="NombreHabilidad" />
                </children>
             </HBox>
          </children>

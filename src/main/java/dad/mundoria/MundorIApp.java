@@ -14,10 +14,12 @@ public class MundorIApp extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		
 		Stage mundoriaStage = new Stage();
+
 		mundoriaStage.getIcons().add(new Image(getClass().getResourceAsStream("/images/icono.png")));
 		mundoriaStage.setTitle("MundorIA");
         mundoriaStage.setScene(new Scene(menuController.getRoot()));
         mundoriaStage.show();
+        mundoriaStage.setFullScreen(true);
 		
 	}
 

@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -66,15 +67,16 @@ public class MenuController implements Initializable {
             personajesPrueba.add((Personaje) DatosPredefinidos.ENTIDADES.get(0));
             SistemaDeCombate sistemaDeCombate = new SistemaDeCombate(enemigosPrueba, personajesPrueba);
             combateController.setSistemaDeCombate(sistemaDeCombate);
+            
             combateController.inicializarVista();
 
-            Stage stage = new Stage();
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/icono.png")));
-            stage.setResizable(false);
-            stage.setTitle("MUNDORIA");
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            
+        //    stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/icono.png")));
             stage.setScene(new Scene(root));
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.showAndWait();
+            stage.setFullScreen(true);
+
+            
         } catch (IOException e) {
             e.printStackTrace();
         }

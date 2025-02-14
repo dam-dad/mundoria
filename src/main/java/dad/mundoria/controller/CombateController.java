@@ -453,9 +453,10 @@ public class CombateController implements Initializable, TurnoListener {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// bindings
-
 		
+		
+		
+		// bindings
 		
 	}
 
@@ -477,6 +478,12 @@ public class CombateController implements Initializable, TurnoListener {
         actualizarSlotsPersonajes(sistemaDeCombate.getPersonajes());
         actualizarSlotsEnemigos(sistemaDeCombate.getEnemigos());
         configurarTimeline();
+        
+        if (personaje1 != null) {
+			personajeSeleccionado = personaje1;
+			cargarDetalles(personaje1);
+			cargarHabilidades(personaje1.getClase().getHabilidades());
+		}
     }
 	
 	public void configurarTimeline() {
@@ -927,12 +934,39 @@ public class CombateController implements Initializable, TurnoListener {
 		habilidad3 = listaHabilidades.get(2);
 		habilidad4 = listaHabilidades.get(3);
 		habilidad5 = listaHabilidades.get(4);
-
+		
 		habilidadButtonSlot1.setText(habilidad1.getNombre());
 		habilidadButtonSlot2.setText(habilidad2.getNombre());
 		habilidadButtonSlot3.setText(habilidad3.getNombre());
 		habilidadButtonSlot4.setText(habilidad4.getNombre());
 		habilidadButtonSlot5.setText(habilidad5.getNombre());
+
+		if (habilidad1.getNivelRequerido() <= personajeSeleccionado.getNivel()) {
+			habilidadButtonSlot1.setDisable(false);
+		} else {
+			habilidadButtonSlot1.setDisable(true);
+		}
+		if (habilidad2.getNivelRequerido() <= personajeSeleccionado.getNivel()) {
+			habilidadButtonSlot2.setDisable(false);
+		} else {
+			habilidadButtonSlot2.setDisable(true);
+		}
+		if (habilidad3.getNivelRequerido() <= personajeSeleccionado.getNivel()) {
+			habilidadButtonSlot3.setDisable(false);
+		} else {
+			habilidadButtonSlot3.setDisable(true);
+		}
+		if (habilidad4.getNivelRequerido() <= personajeSeleccionado.getNivel()) {
+			habilidadButtonSlot4.setDisable(false);
+		} else {
+			habilidadButtonSlot4.setDisable(true);
+		}
+		if (habilidad5.getNivelRequerido() <= personajeSeleccionado.getNivel()) {
+			habilidadButtonSlot5.setDisable(false);
+		} else {
+			habilidadButtonSlot5.setDisable(true);
+		}
+		
 	}
 
 	public HBox getEnemigosListaHBox() {
