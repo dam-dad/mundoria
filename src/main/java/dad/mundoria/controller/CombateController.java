@@ -616,377 +616,377 @@ public class CombateController implements Initializable, TurnoListener {
 		timeline.play();
 		
 	}
-
+	
 	// Este método lo que hace resumidamente es obtener una lista de personajes
-	// para con un switch calcular el tamaño de la lista y actuar en consecuencia.
-	// Si hay 1 personaje, activa 1 slot. Si hay 2 personajes activa dos slots
-	// y así consecutivamente. Es un método pensado para llamarse una vez por
-	// combate.
-	public void actualizarSlotsPersonajes(List<Personaje> listaPersonajes) {
+		// para con un switch calcular el tamaño de la lista y actuar en consecuencia.
+		// Si hay 1 personaje, activa 1 slot. Si hay 2 personajes activa dos slots
+		// y así consecutivamente. Es un método pensado para llamarse una vez por
+		// combate.
+		public void actualizarSlotsPersonajes(List<Personaje> listaPersonajes) {
 
-		switch (listaPersonajes.size()) {
-		case 1:
-			personaje1 = listaPersonajes.get(0);
-			saludMaxima1 = personaje1.getSalud();
-			saludActual1 = saludMaxima1;
-			stamanaMaxima1 = personaje1.getStamana();
-			stamanaActual1 = stamanaMaxima1;
+			switch (listaPersonajes.size()) {
+			case 1:
+				personaje1 = listaPersonajes.get(0);
+				saludMaxima1 = personaje1.getSalud();
+				saludActual1 = saludMaxima1;
+				stamanaMaxima1 = personaje1.getStamana();
+				stamanaActual1 = stamanaMaxima1;
 
-			personajeSlot1.setVisible(true);
-			nombrePersonajeSlot1.setText(personaje1.getNombre());
-			saludPersonajeSlot1.setProgress(1);
-			progresoSalud1 = 1;
-			stamanaPersonajeSlot1.setProgress(1);
-			progresoStamana1 = 1;
+				personajeSlot1.setVisible(true);
+				nombrePersonajeSlot1.setText(personaje1.getNombre());
+				saludPersonajeSlot1.setProgress(1);
+				progresoSalud1 = 1;
+				stamanaPersonajeSlot1.setProgress(1);
+				progresoStamana1 = 1;
 
-			break;
-		case 2:
-			personaje1 = listaPersonajes.get(0);
-			saludMaxima1 = personaje1.getSalud();
-			saludActual1 = saludMaxima1;
-			stamanaMaxima1 = personaje1.getStamana();
-			stamanaActual1 = stamanaMaxima1;
+				break;
+			case 2:
+				personaje1 = listaPersonajes.get(0);
+				saludMaxima1 = personaje1.getSalud();
+				saludActual1 = saludMaxima1;
+				stamanaMaxima1 = personaje1.getStamana();
+				stamanaActual1 = stamanaMaxima1;
 
-			personajeSlot1.setVisible(true);
-			nombrePersonajeSlot1.setText(personaje1.getNombre());
-			saludPersonajeSlot1.setProgress(1);
-			progresoSalud1 = 1;
-			stamanaPersonajeSlot1.setProgress(1);
-			progresoStamana1 = 1;
+				personajeSlot1.setVisible(true);
+				nombrePersonajeSlot1.setText(personaje1.getNombre());
+				saludPersonajeSlot1.setProgress(1);
+				progresoSalud1 = 1;
+				stamanaPersonajeSlot1.setProgress(1);
+				progresoStamana1 = 1;
 
-			personaje2 = listaPersonajes.get(1);
-			saludMaxima2 = personaje2.getSalud();
-			saludActual2 = saludMaxima2;
-			stamanaMaxima2 = personaje2.getStamana();
-			stamanaActual2 = stamanaMaxima2;
+				personaje2 = listaPersonajes.get(1);
+				saludMaxima2 = personaje2.getSalud();
+				saludActual2 = saludMaxima2;
+				stamanaMaxima2 = personaje2.getStamana();
+				stamanaActual2 = stamanaMaxima2;
 
-			personajeSlot2.setVisible(true);
-			nombrePersonajeSlot2.setText(personaje2.getNombre());
-			saludPersonajeSlot2.setProgress(1);
-			progresoSalud2 = 1;
-			stamanaPersonajeSlot2.setProgress(1);
-			progresoStamana2 = 1;
+				personajeSlot2.setVisible(true);
+				nombrePersonajeSlot2.setText(personaje2.getNombre());
+				saludPersonajeSlot2.setProgress(1);
+				progresoSalud2 = 1;
+				stamanaPersonajeSlot2.setProgress(1);
+				progresoStamana2 = 1;
 
-			break;
-		case 3:
-			personaje1 = listaPersonajes.get(0);
-			saludMaxima1 = personaje1.getSalud();
-			saludActual1 = saludMaxima1;
-			stamanaMaxima1 = personaje1.getStamana();
-			stamanaActual1 = stamanaMaxima1;
+				break;
+			case 3:
+				personaje1 = listaPersonajes.get(0);
+				saludMaxima1 = personaje1.getSalud();
+				saludActual1 = saludMaxima1;
+				stamanaMaxima1 = personaje1.getStamana();
+				stamanaActual1 = stamanaMaxima1;
 
-			personajeSlot1.setVisible(true);
-			nombrePersonajeSlot1.setText(personaje1.getNombre());
-			saludPersonajeSlot1.setProgress(1);
-			progresoSalud1 = 1;
-			stamanaPersonajeSlot1.setProgress(1);
-			progresoStamana1 = 1;
+				personajeSlot1.setVisible(true);
+				nombrePersonajeSlot1.setText(personaje1.getNombre());
+				saludPersonajeSlot1.setProgress(1);
+				progresoSalud1 = 1;
+				stamanaPersonajeSlot1.setProgress(1);
+				progresoStamana1 = 1;
 
-			personaje2 = listaPersonajes.get(1);
-			saludMaxima2 = personaje2.getSalud();
-			saludActual2 = saludMaxima2;
-			stamanaMaxima2 = personaje2.getStamana();
-			stamanaActual2 = stamanaMaxima2;
+				personaje2 = listaPersonajes.get(1);
+				saludMaxima2 = personaje2.getSalud();
+				saludActual2 = saludMaxima2;
+				stamanaMaxima2 = personaje2.getStamana();
+				stamanaActual2 = stamanaMaxima2;
 
-			personajeSlot2.setVisible(true);
-			nombrePersonajeSlot2.setText(personaje2.getNombre());
-			saludPersonajeSlot2.setProgress(1);
-			progresoSalud2 = 1;
-			stamanaPersonajeSlot2.setProgress(1);
-			progresoStamana2 = 1;
+				personajeSlot2.setVisible(true);
+				nombrePersonajeSlot2.setText(personaje2.getNombre());
+				saludPersonajeSlot2.setProgress(1);
+				progresoSalud2 = 1;
+				stamanaPersonajeSlot2.setProgress(1);
+				progresoStamana2 = 1;
 
-			personaje3 = listaPersonajes.get(2);
-			saludMaxima3 = personaje3.getSalud();
-			saludActual3 = saludMaxima3;
-			stamanaMaxima3 = personaje3.getStamana();
-			stamanaActual3 = stamanaMaxima3;
+				personaje3 = listaPersonajes.get(2);
+				saludMaxima3 = personaje3.getSalud();
+				saludActual3 = saludMaxima3;
+				stamanaMaxima3 = personaje3.getStamana();
+				stamanaActual3 = stamanaMaxima3;
 
-			personajeSlot3.setVisible(true);
-			nombrePersonajeSlot3.setText(personaje3.getNombre());
-			saludPersonajeSlot3.setProgress(1);
-			progresoSalud3 = 1;
-			stamanaPersonajeSlot3.setProgress(1);
-			progresoStamana3 = 1;
+				personajeSlot3.setVisible(true);
+				nombrePersonajeSlot3.setText(personaje3.getNombre());
+				saludPersonajeSlot3.setProgress(1);
+				progresoSalud3 = 1;
+				stamanaPersonajeSlot3.setProgress(1);
+				progresoStamana3 = 1;
 
-			break;
-		case 4:
-			personaje1 = listaPersonajes.get(0);
-			saludMaxima1 = personaje1.getSalud();
-			saludActual1 = saludMaxima1;
-			stamanaMaxima1 = personaje1.getStamana();
-			stamanaActual1 = stamanaMaxima1;
+				break;
+			case 4:
+				personaje1 = listaPersonajes.get(0);
+				saludMaxima1 = personaje1.getSalud();
+				saludActual1 = saludMaxima1;
+				stamanaMaxima1 = personaje1.getStamana();
+				stamanaActual1 = stamanaMaxima1;
 
-			personajeSlot1.setVisible(true);
-			nombrePersonajeSlot1.setText(personaje1.getNombre());
-			saludPersonajeSlot1.setProgress(1);
-			progresoSalud1 = 1;
-			stamanaPersonajeSlot1.setProgress(1);
-			progresoStamana1 = 1;
+				personajeSlot1.setVisible(true);
+				nombrePersonajeSlot1.setText(personaje1.getNombre());
+				saludPersonajeSlot1.setProgress(1);
+				progresoSalud1 = 1;
+				stamanaPersonajeSlot1.setProgress(1);
+				progresoStamana1 = 1;
 
-			personaje2 = listaPersonajes.get(1);
-			saludMaxima2 = personaje2.getSalud();
-			saludActual2 = saludMaxima2;
-			stamanaMaxima2 = personaje2.getStamana();
-			stamanaActual2 = stamanaMaxima2;
+				personaje2 = listaPersonajes.get(1);
+				saludMaxima2 = personaje2.getSalud();
+				saludActual2 = saludMaxima2;
+				stamanaMaxima2 = personaje2.getStamana();
+				stamanaActual2 = stamanaMaxima2;
 
-			personajeSlot2.setVisible(true);
-			nombrePersonajeSlot2.setText(personaje2.getNombre());
-			saludPersonajeSlot2.setProgress(1);
-			progresoSalud2 = 1;
-			stamanaPersonajeSlot2.setProgress(1);
-			progresoStamana2 = 1;
+				personajeSlot2.setVisible(true);
+				nombrePersonajeSlot2.setText(personaje2.getNombre());
+				saludPersonajeSlot2.setProgress(1);
+				progresoSalud2 = 1;
+				stamanaPersonajeSlot2.setProgress(1);
+				progresoStamana2 = 1;
 
-			personaje3 = listaPersonajes.get(2);
-			saludMaxima3 = personaje3.getSalud();
-			saludActual3 = saludMaxima3;
-			stamanaMaxima3 = personaje3.getStamana();
-			stamanaActual3 = stamanaMaxima3;
+				personaje3 = listaPersonajes.get(2);
+				saludMaxima3 = personaje3.getSalud();
+				saludActual3 = saludMaxima3;
+				stamanaMaxima3 = personaje3.getStamana();
+				stamanaActual3 = stamanaMaxima3;
 
-			personajeSlot3.setVisible(true);
-			nombrePersonajeSlot3.setText(personaje3.getNombre());
-			saludPersonajeSlot3.setProgress(1);
-			progresoSalud3 = 1;
-			stamanaPersonajeSlot3.setProgress(1);
-			progresoStamana3 = 1;
+				personajeSlot3.setVisible(true);
+				nombrePersonajeSlot3.setText(personaje3.getNombre());
+				saludPersonajeSlot3.setProgress(1);
+				progresoSalud3 = 1;
+				stamanaPersonajeSlot3.setProgress(1);
+				progresoStamana3 = 1;
 
-			personaje4 = listaPersonajes.get(3);
-			saludMaxima4 = personaje4.getSalud();
-			saludActual4 = saludMaxima4;
-			stamanaMaxima4 = personaje4.getStamana();
-			stamanaActual4 = stamanaMaxima4;
+				personaje4 = listaPersonajes.get(3);
+				saludMaxima4 = personaje4.getSalud();
+				saludActual4 = saludMaxima4;
+				stamanaMaxima4 = personaje4.getStamana();
+				stamanaActual4 = stamanaMaxima4;
 
-			personajeSlot4.setVisible(true);
-			nombrePersonajeSlot4.setText(personaje4.getNombre());
-			saludPersonajeSlot4.setProgress(1);
-			progresoSalud4 = 1;
-			stamanaPersonajeSlot4.setProgress(1);
-			progresoStamana4 = 1;
+				personajeSlot4.setVisible(true);
+				nombrePersonajeSlot4.setText(personaje4.getNombre());
+				saludPersonajeSlot4.setProgress(1);
+				progresoSalud4 = 1;
+				stamanaPersonajeSlot4.setProgress(1);
+				progresoStamana4 = 1;
 
-			break;
+				break;
+			}
+
+		}
+
+		// Funciona igual que actualizarSlotsPersonajes.
+		public void actualizarSlotsEnemigos(List<Enemigo> listaEnemigos) {
+
+			switch (listaEnemigos.size()) {
+			case 1:
+				enemigo1 = listaEnemigos.get(0);
+				saludMaximaE1 = enemigo1.getSalud();
+				saludActualE1 = saludMaximaE1;
+				stamanaMaximaE1 = enemigo1.getStamana();
+				stamanaActualE1 = stamanaMaximaE1;
+
+				enemigoSlot1.setVisible(true);
+				nombreEnemigoSlot1.setText(enemigo1.getNombre());
+				saludEnemigoSlot1.setProgress(1);
+				progresoSaludE1 = 1;
+				stamanaEnemigoSlot1.setProgress(1);
+				progresoStamanaE1 = 1;
+
+				break;
+			case 2:
+				enemigo1 = listaEnemigos.get(0);
+				saludMaximaE1 = enemigo1.getSalud();
+				saludActualE1 = saludMaximaE1;
+				stamanaMaximaE1 = enemigo1.getStamana();
+				stamanaActualE1 = stamanaMaximaE1;
+
+				enemigoSlot1.setVisible(true);
+				nombreEnemigoSlot1.setText(enemigo1.getNombre());
+				saludEnemigoSlot1.setProgress(1);
+				progresoSaludE1 = 1;
+				stamanaEnemigoSlot1.setProgress(1);
+				progresoStamanaE1 = 1;
+
+				enemigo2 = listaEnemigos.get(1);
+				saludMaximaE2 = enemigo2.getSalud();
+				saludActualE2 = saludMaximaE2;
+				stamanaMaximaE2 = enemigo2.getStamana();
+				stamanaActualE2 = stamanaMaximaE2;
+
+				enemigoSlot2.setVisible(true);
+				nombreEnemigoSlot2.setText(enemigo2.getNombre());
+				saludEnemigoSlot2.setProgress(1);
+				progresoSaludE2 = 1;
+				stamanaEnemigoSlot2.setProgress(1);
+				progresoStamanaE2 = 1;
+
+				break;
+			case 3:
+				enemigo1 = listaEnemigos.get(0);
+				saludMaximaE1 = enemigo1.getSalud();
+				saludActualE1 = saludMaximaE1;
+				stamanaMaximaE1 = enemigo1.getStamana();
+				stamanaActualE1 = stamanaMaximaE1;
+
+				enemigoSlot1.setVisible(true);
+				nombreEnemigoSlot1.setText(enemigo1.getNombre());
+				saludEnemigoSlot1.setProgress(1);
+				progresoSaludE1 = 1;
+				stamanaEnemigoSlot1.setProgress(1);
+				progresoStamanaE1 = 1;
+
+				enemigo2 = listaEnemigos.get(1);
+				saludMaximaE2 = enemigo2.getSalud();
+				saludActualE2 = saludMaximaE2;
+				stamanaMaximaE2 = enemigo2.getStamana();
+				stamanaActualE2 = stamanaMaximaE2;
+
+				enemigoSlot2.setVisible(true);
+				nombreEnemigoSlot2.setText(enemigo2.getNombre());
+				saludEnemigoSlot2.setProgress(1);
+				progresoSaludE2 = 1;
+				stamanaEnemigoSlot2.setProgress(1);
+				progresoStamanaE2 = 1;
+
+				enemigo3 = listaEnemigos.get(2);
+				saludMaximaE3 = enemigo3.getSalud();
+				saludActualE3 = saludMaximaE3;
+				stamanaMaximaE3 = enemigo3.getStamana();
+				stamanaActualE3 = stamanaMaximaE3;
+
+				enemigoSlot3.setVisible(true);
+				nombreEnemigoSlot3.setText(enemigo3.getNombre());
+				saludEnemigoSlot3.setProgress(1);
+				progresoSaludE3 = 1;
+				stamanaEnemigoSlot3.setProgress(1);
+				progresoStamanaE3 = 1;
+
+				break;
+			case 4:
+				enemigo1 = listaEnemigos.get(0);
+				saludMaximaE1 = enemigo1.getSalud();
+				saludActualE1 = saludMaximaE1;
+				stamanaMaximaE1 = enemigo1.getStamana();
+				stamanaActualE1 = stamanaMaximaE1;
+
+				enemigoSlot1.setVisible(true);
+				nombreEnemigoSlot1.setText(enemigo1.getNombre());
+				saludEnemigoSlot1.setProgress(1);
+				progresoSaludE1 = 1;
+				stamanaEnemigoSlot1.setProgress(1);
+				progresoStamanaE1 = 1;
+
+				enemigo2 = listaEnemigos.get(1);
+				saludMaximaE2 = enemigo2.getSalud();
+				saludActualE2 = saludMaximaE2;
+				stamanaMaximaE2 = enemigo2.getStamana();
+				stamanaActualE2 = stamanaMaximaE2;
+
+				enemigoSlot2.setVisible(true);
+				nombreEnemigoSlot2.setText(enemigo2.getNombre());
+				saludEnemigoSlot2.setProgress(1);
+				progresoSaludE2 = 1;
+				stamanaEnemigoSlot2.setProgress(1);
+				progresoStamanaE2 = 1;
+
+				enemigo3 = listaEnemigos.get(2);
+				saludMaximaE3 = enemigo3.getSalud();
+				saludActualE3 = saludMaximaE3;
+				stamanaMaximaE3 = enemigo3.getStamana();
+				stamanaActualE3 = stamanaMaximaE3;
+
+				enemigoSlot3.setVisible(true);
+				nombreEnemigoSlot3.setText(enemigo3.getNombre());
+				saludEnemigoSlot3.setProgress(1);
+				progresoSaludE3 = 1;
+				stamanaEnemigoSlot3.setProgress(1);
+				progresoStamanaE3 = 1;
+
+				enemigo4 = listaEnemigos.get(3);
+				saludMaximaE4 = enemigo4.getSalud();
+				saludActualE4 = saludMaximaE4;
+				stamanaMaximaE4 = enemigo4.getStamana();
+				stamanaActualE4 = stamanaMaximaE4;
+
+				enemigoSlot4.setVisible(true);
+				nombreEnemigoSlot4.setText(enemigo4.getNombre());
+				saludEnemigoSlot4.setProgress(1);
+				progresoSaludE4 = 1;
+				stamanaEnemigoSlot4.setProgress(1);
+				progresoStamanaE4 = 1;
+
+				break;
+			}
+
+		}
+
+		public void cargarDetalles(Personaje personaje) {
+
+			detallesNombreLabel.setText(personaje.getNombre());
+			detallesClaseLabel.setText(personaje.getClase().getNombre());
+			detallesSaludLabel.setText(String.valueOf(personaje.getSalud()));
+			detallesStamanaLabel.setText(String.valueOf(personaje.getStamana()));
+			detallesAgilidadLabel.setText(String.valueOf(personaje.getAgilidad()));
+			detallesSuerteLabel.setText(String.valueOf(personaje.getSuerte()));
+			detallesDefensaLabel.setText(String.valueOf(personaje.getDefensa()));
+			detallesAtaqueLabel.setText(String.valueOf(personaje.getAtaque()));
+			inventarioActual = personaje.getInventario();
+
+		}
+
+		public void cargarHabilidades(List<Habilidad> listaHabilidades) {
+
+			habilidad1 = listaHabilidades.get(0);
+			habilidad2 = listaHabilidades.get(1);
+			habilidad3 = listaHabilidades.get(2);
+			habilidad4 = listaHabilidades.get(3);
+			habilidad5 = listaHabilidades.get(4);
+			
+			habilidadButtonSlot1.setText(habilidad1.getNombre());
+			habilidadButtonSlot2.setText(habilidad2.getNombre());
+			habilidadButtonSlot3.setText(habilidad3.getNombre());
+			habilidadButtonSlot4.setText(habilidad4.getNombre());
+			habilidadButtonSlot5.setText(habilidad5.getNombre());
+
+			if (habilidad1.getNivelRequerido() <= personajeSeleccionado.getNivel()) {
+				habilidadButtonSlot1.setDisable(false);
+			} else {
+				habilidadButtonSlot1.setDisable(true);
+			}
+			if (habilidad2.getNivelRequerido() <= personajeSeleccionado.getNivel()) {
+				habilidadButtonSlot2.setDisable(false);
+			} else {
+				habilidadButtonSlot2.setDisable(true);
+			}
+			if (habilidad3.getNivelRequerido() <= personajeSeleccionado.getNivel()) {
+				habilidadButtonSlot3.setDisable(false);
+			} else {
+				habilidadButtonSlot3.setDisable(true);
+			}
+			if (habilidad4.getNivelRequerido() <= personajeSeleccionado.getNivel()) {
+				habilidadButtonSlot4.setDisable(false);
+			} else {
+				habilidadButtonSlot4.setDisable(true);
+			}
+			if (habilidad5.getNivelRequerido() <= personajeSeleccionado.getNivel()) {
+				habilidadButtonSlot5.setDisable(false);
+			} else {
+				habilidadButtonSlot5.setDisable(true);
+			}
+			
+		}
+
+		public HBox getEnemigosListaHBox() {
+			return enemigosListaHBox;
+		}
+
+		public HBox getPersonajesListaHBox() {
+			return personajesListaHBox;
+		}
+
+		public BorderPane getRoot() {
+			return root;
+		}
+
+		public Enemigo getEnemigoSeleccionado() {
+			return enemigoSeleccionado;
+		}
+
+		public void setSistemaDeCombate(SistemaDeCombate sistemaDeCombate) {
+			this.sistemaDeCombate = sistemaDeCombate;
 		}
 
 	}
-
-	// Funciona igual que actualizarSlotsPersonajes.
-	public void actualizarSlotsEnemigos(List<Enemigo> listaEnemigos) {
-
-		switch (listaEnemigos.size()) {
-		case 1:
-			enemigo1 = listaEnemigos.get(0);
-			saludMaximaE1 = enemigo1.getSalud();
-			saludActualE1 = saludMaximaE1;
-			stamanaMaximaE1 = enemigo1.getStamana();
-			stamanaActualE1 = stamanaMaximaE1;
-
-			enemigoSlot1.setVisible(true);
-			nombreEnemigoSlot1.setText(enemigo1.getNombre());
-			saludEnemigoSlot1.setProgress(1);
-			progresoSaludE1 = 1;
-			stamanaEnemigoSlot1.setProgress(1);
-			progresoStamanaE1 = 1;
-
-			break;
-		case 2:
-			enemigo1 = listaEnemigos.get(0);
-			saludMaximaE1 = enemigo1.getSalud();
-			saludActualE1 = saludMaximaE1;
-			stamanaMaximaE1 = enemigo1.getStamana();
-			stamanaActualE1 = stamanaMaximaE1;
-
-			enemigoSlot1.setVisible(true);
-			nombreEnemigoSlot1.setText(enemigo1.getNombre());
-			saludEnemigoSlot1.setProgress(1);
-			progresoSaludE1 = 1;
-			stamanaEnemigoSlot1.setProgress(1);
-			progresoStamanaE1 = 1;
-
-			enemigo2 = listaEnemigos.get(1);
-			saludMaximaE2 = enemigo2.getSalud();
-			saludActualE2 = saludMaximaE2;
-			stamanaMaximaE2 = enemigo2.getStamana();
-			stamanaActualE2 = stamanaMaximaE2;
-
-			enemigoSlot2.setVisible(true);
-			nombreEnemigoSlot2.setText(enemigo2.getNombre());
-			saludEnemigoSlot2.setProgress(1);
-			progresoSaludE2 = 1;
-			stamanaEnemigoSlot2.setProgress(1);
-			progresoStamanaE2 = 1;
-
-			break;
-		case 3:
-			enemigo1 = listaEnemigos.get(0);
-			saludMaximaE1 = enemigo1.getSalud();
-			saludActualE1 = saludMaximaE1;
-			stamanaMaximaE1 = enemigo1.getStamana();
-			stamanaActualE1 = stamanaMaximaE1;
-
-			enemigoSlot1.setVisible(true);
-			nombreEnemigoSlot1.setText(enemigo1.getNombre());
-			saludEnemigoSlot1.setProgress(1);
-			progresoSaludE1 = 1;
-			stamanaEnemigoSlot1.setProgress(1);
-			progresoStamanaE1 = 1;
-
-			enemigo2 = listaEnemigos.get(1);
-			saludMaximaE2 = enemigo2.getSalud();
-			saludActualE2 = saludMaximaE2;
-			stamanaMaximaE2 = enemigo2.getStamana();
-			stamanaActualE2 = stamanaMaximaE2;
-
-			enemigoSlot2.setVisible(true);
-			nombreEnemigoSlot2.setText(enemigo2.getNombre());
-			saludEnemigoSlot2.setProgress(1);
-			progresoSaludE2 = 1;
-			stamanaEnemigoSlot2.setProgress(1);
-			progresoStamanaE2 = 1;
-
-			enemigo3 = listaEnemigos.get(2);
-			saludMaximaE3 = enemigo3.getSalud();
-			saludActualE3 = saludMaximaE3;
-			stamanaMaximaE3 = enemigo3.getStamana();
-			stamanaActualE3 = stamanaMaximaE3;
-
-			enemigoSlot3.setVisible(true);
-			nombreEnemigoSlot3.setText(enemigo3.getNombre());
-			saludEnemigoSlot3.setProgress(1);
-			progresoSaludE3 = 1;
-			stamanaEnemigoSlot3.setProgress(1);
-			progresoStamanaE3 = 1;
-
-			break;
-		case 4:
-			enemigo1 = listaEnemigos.get(0);
-			saludMaximaE1 = enemigo1.getSalud();
-			saludActualE1 = saludMaximaE1;
-			stamanaMaximaE1 = enemigo1.getStamana();
-			stamanaActualE1 = stamanaMaximaE1;
-
-			enemigoSlot1.setVisible(true);
-			nombreEnemigoSlot1.setText(enemigo1.getNombre());
-			saludEnemigoSlot1.setProgress(1);
-			progresoSaludE1 = 1;
-			stamanaEnemigoSlot1.setProgress(1);
-			progresoStamanaE1 = 1;
-
-			enemigo2 = listaEnemigos.get(1);
-			saludMaximaE2 = enemigo2.getSalud();
-			saludActualE2 = saludMaximaE2;
-			stamanaMaximaE2 = enemigo2.getStamana();
-			stamanaActualE2 = stamanaMaximaE2;
-
-			enemigoSlot2.setVisible(true);
-			nombreEnemigoSlot2.setText(enemigo2.getNombre());
-			saludEnemigoSlot2.setProgress(1);
-			progresoSaludE2 = 1;
-			stamanaEnemigoSlot2.setProgress(1);
-			progresoStamanaE2 = 1;
-
-			enemigo3 = listaEnemigos.get(2);
-			saludMaximaE3 = enemigo3.getSalud();
-			saludActualE3 = saludMaximaE3;
-			stamanaMaximaE3 = enemigo3.getStamana();
-			stamanaActualE3 = stamanaMaximaE3;
-
-			enemigoSlot3.setVisible(true);
-			nombreEnemigoSlot3.setText(enemigo3.getNombre());
-			saludEnemigoSlot3.setProgress(1);
-			progresoSaludE3 = 1;
-			stamanaEnemigoSlot3.setProgress(1);
-			progresoStamanaE3 = 1;
-
-			enemigo4 = listaEnemigos.get(3);
-			saludMaximaE4 = enemigo4.getSalud();
-			saludActualE4 = saludMaximaE4;
-			stamanaMaximaE4 = enemigo4.getStamana();
-			stamanaActualE4 = stamanaMaximaE4;
-
-			enemigoSlot4.setVisible(true);
-			nombreEnemigoSlot4.setText(enemigo4.getNombre());
-			saludEnemigoSlot4.setProgress(1);
-			progresoSaludE4 = 1;
-			stamanaEnemigoSlot4.setProgress(1);
-			progresoStamanaE4 = 1;
-
-			break;
-		}
-
-	}
-
-	public void cargarDetalles(Personaje personaje) {
-
-		detallesNombreLabel.setText(personaje.getNombre());
-		detallesClaseLabel.setText(personaje.getClase().getNombre());
-		detallesSaludLabel.setText(String.valueOf(personaje.getSalud()));
-		detallesStamanaLabel.setText(String.valueOf(personaje.getStamana()));
-		detallesAgilidadLabel.setText(String.valueOf(personaje.getAgilidad()));
-		detallesSuerteLabel.setText(String.valueOf(personaje.getSuerte()));
-		detallesDefensaLabel.setText(String.valueOf(personaje.getDefensa()));
-		detallesAtaqueLabel.setText(String.valueOf(personaje.getAtaque()));
-		inventarioActual = personaje.getInventario();
-
-	}
-
-	public void cargarHabilidades(List<Habilidad> listaHabilidades) {
-
-		habilidad1 = listaHabilidades.get(0);
-		habilidad2 = listaHabilidades.get(1);
-		habilidad3 = listaHabilidades.get(2);
-		habilidad4 = listaHabilidades.get(3);
-		habilidad5 = listaHabilidades.get(4);
-		
-		habilidadButtonSlot1.setText(habilidad1.getNombre());
-		habilidadButtonSlot2.setText(habilidad2.getNombre());
-		habilidadButtonSlot3.setText(habilidad3.getNombre());
-		habilidadButtonSlot4.setText(habilidad4.getNombre());
-		habilidadButtonSlot5.setText(habilidad5.getNombre());
-
-		if (habilidad1.getNivelRequerido() <= personajeSeleccionado.getNivel()) {
-			habilidadButtonSlot1.setDisable(false);
-		} else {
-			habilidadButtonSlot1.setDisable(true);
-		}
-		if (habilidad2.getNivelRequerido() <= personajeSeleccionado.getNivel()) {
-			habilidadButtonSlot2.setDisable(false);
-		} else {
-			habilidadButtonSlot2.setDisable(true);
-		}
-		if (habilidad3.getNivelRequerido() <= personajeSeleccionado.getNivel()) {
-			habilidadButtonSlot3.setDisable(false);
-		} else {
-			habilidadButtonSlot3.setDisable(true);
-		}
-		if (habilidad4.getNivelRequerido() <= personajeSeleccionado.getNivel()) {
-			habilidadButtonSlot4.setDisable(false);
-		} else {
-			habilidadButtonSlot4.setDisable(true);
-		}
-		if (habilidad5.getNivelRequerido() <= personajeSeleccionado.getNivel()) {
-			habilidadButtonSlot5.setDisable(false);
-		} else {
-			habilidadButtonSlot5.setDisable(true);
-		}
-		
-	}
-
-	public HBox getEnemigosListaHBox() {
-		return enemigosListaHBox;
-	}
-
-	public HBox getPersonajesListaHBox() {
-		return personajesListaHBox;
-	}
-
-	public BorderPane getRoot() {
-		return root;
-	}
-
-	public Enemigo getEnemigoSeleccionado() {
-		return enemigoSeleccionado;
-	}
-
-	public void setSistemaDeCombate(SistemaDeCombate sistemaDeCombate) {
-		this.sistemaDeCombate = sistemaDeCombate;
-	}
-
-}
