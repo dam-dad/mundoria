@@ -58,6 +58,11 @@ public class MenuController implements Initializable {
 
     @FXML
     void onNuevaPartida(ActionEvent event) {
+
+        if (mediaPlayer != null) {
+            mediaPlayer.stop(); // Detiene la música del menú
+        }
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/CombateView.fxml"));
             Parent root = loader.load();
@@ -71,7 +76,14 @@ public class MenuController implements Initializable {
             combateController.inicializarVista();
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            
+
+            String musicFile = getClass().getResource("/audio/musicaCombate.mp3").toExternalForm();
+            Media media = new Media(musicFile);
+            mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+            mediaPlayer.setVolume(0.5);
+            mediaPlayer.play();
+
         //    stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/icono.png")));
             stage.setScene(new Scene(root));
             stage.setFullScreen(true);

@@ -453,9 +453,9 @@ public class CombateController implements Initializable, TurnoListener {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		root.getStylesheets().add(getClass().getResource("/styles/combate.css").toExternalForm());
 		
-		
-		
+
 		// bindings
 		
 	}
