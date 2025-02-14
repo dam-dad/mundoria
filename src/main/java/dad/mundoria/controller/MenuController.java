@@ -1,3 +1,28 @@
+package dad.mundoria.controller;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+import dad.mundoria.model.Enemigo;
+import dad.mundoria.model.Personaje;
+import dad.mundoria.model.SistemaDeCombate;
+import dad.mundoria.model.data.DatosPredefinidos;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
+
 /**
  * Controlador principal del menú de la aplicación, maneja las acciones de los botones y la música de fondo.
  * Esta clase gestiona la transición entre diferentes vistas del juego.
