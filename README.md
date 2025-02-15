@@ -58,7 +58,7 @@ Juego de rol generativo usando una IA (GPT-4) como Game Master
 
 - **Java 11+** (se recomienda Java 17 o superior).
 - **JavaFX** (en algunos entornos es necesario incluir las librerías de JavaFX manualmente).
-- **Gradle o Maven** (dependiendo de la configuración del proyecto) para gestionar dependencias.
+- **Maven** Para gestionar dependencias.
 - (Opcional) **OpenAI API Key** si deseas probar la integración con GPT-4.
 
 ---
