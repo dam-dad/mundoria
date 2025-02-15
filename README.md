@@ -68,34 +68,54 @@ Juego de rol generativo usando una IA (GPT-4) como Game Master
 ```plaintext
 mundoria/
 │
-├── src/main/java/dad/mundoria/
-│   ├── controller/
-│   │   ├── MenuController.java
-│   │   ├── CombateController.java
-│   │   
-│   ├── model/
-│   │   ├── Personaje.java
-│   │   ├── Enemigo.java
-│   │   ├── SistemaDeCombate.java
-│   │   ├── Efecto.java
-│   │   ├── Habilidad.java
-│   │   └── ...
-│   ├── app/
-│   │   └── Main.java (punto de entrada)
-│   └── ...
-├── src/main/resources/fxml/
-│   ├── MenuView.fxml
-│   ├── CombateView.fxml
-│   └── ...
-├── build.gradle / pom.xml
 ├── README.md
-└── ...
+├── config.xml
+├── mundoria.exe
+├── mysetup.iss
+├── pom.xml
+├── setup.exe
+│
+├── src/main/
+│   ├── java/dad/mundoria/
+│   │   ├── Main.java  (Punto de entrada)
+│   │   ├── MundorIApp.java
+│   │   │
+│   │   ├── controller/
+│   │   │   ├── CombateController.java
+│   │   │   ├── MenuController.java
+│   │   │
+│   │   ├── model/
+│   │   │   ├── Clase.java
+│   │   │   ├── ControlDeTurnos.java
+│   │   │   ├── Dado.java
+│   │   │   ├── Efecto.java
+│   │   │   ├── Enemigo.java
+│   │   │   ├── Entidad.java
+│   │   │   ├── Habilidad.java
+│   │   │   ├── Inventario.java
+│   │   │   ├── Item.java
+│   │   │   ├── Personaje.java
+│   │   │   ├── Raza.java
+│   │   │   ├── SistemaDeCombate.java
+│   │   │   ├── TurnoListener.java
+│   │   │   │
+│   │   │   ├── data/
+│   │   │       ├── DatosPredefinidos.java
+│   │   │
+│   ├── resources/
+│   │   ├── audio/   (Carpeta donde se guardan los audios)
+│   │   ├── fxml/    (Para archivos FXML)
+│   │   ├── images/  (Recursos en imagen)
+│   │   ├── styles/  (Estilos CSS)
 ```
 
 - **controller/**: Clases de controlador para JavaFX (MenuController, CombateController).
 - **model/**: Lógica de negocio (Personaje, Enemigo, SistemaDeCombate, Efecto, etc.).
-- **app/**: Clase principal (`MainApp`) que inicia JavaFX.
+- **app/**: Clase principal (`Main`) que inicia JavaFX.
 - **fxml/**: Archivos de interfaz para SceneBuilder.
+- **audio/**: Archivos de audio para la app.
+- **images/**: Recursos de imagen.
+- **styles/**: Estilos CSS
 
 ---
 
@@ -108,18 +128,14 @@ mundoria/
    ```
 2. **Importar el proyecto** en tu IDE favorito (IntelliJ, Eclipse, VSCode con extensiones de Java).
 3. **Ejecutar** el proyecto:
-   - Con Gradle:
-     ```bash
-     gradle run
-     ```
    - Con Maven:
      ```bash
      mvn javafx:run
      ```
-   - O directamente desde la clase `MainApp` en tu IDE.
+   - O directamente desde la clase `Main` en tu IDE.
 
 4. **(Opcional)** Configurar la API Key de OpenAI para la IA:
-   - Podrías definir una variable de entorno `OPENAI_API_KEY` o un archivo de configuración.
+   - Podrías definir una variable de entorno `OPENAI_API_KEY` o un archivo de configuración. (Aun no funcional
 
 ---
 
@@ -156,13 +172,7 @@ mundoria/
 
 ## Licencia
 
-*(Si no has definido licencia, puedes indicar que es un proyecto privado o que está bajo una licencia permisiva.)*
-
-Por ejemplo:
-```
-MIT License
-```
-*(Incluye el texto de la licencia en el archivo LICENSE.)*
+*Es un proyecto con fines educativos.*
 
 ---
 
@@ -173,6 +183,7 @@ MIT License
 
 Si tienes preguntas, abre un Issue en GitHub o contáctame por email.
 
+Enlace a Manual de Uso: https://docs.google.com/document/d/1jJ9nNeHItiWp_FU_jHvTL2FGiRG94vLwjcw_mKcbL7Y/edit?usp=sharing
 ---
 
 ¡Disfruta de **Mundoria** y contribuye con tus ideas!
