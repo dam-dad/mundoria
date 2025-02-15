@@ -88,6 +88,12 @@ public class Efecto {
                 break;
             case PROTECCION:
                 objetivo.actualizarEfectos(); // TODO: Pendiente sistema de turnos para los efectos temporales.
+                break;
+            case LLAMADA:
+            	objetivo.actualizarEfectos();
+            	break;
+		default:
+			break;
         }
     }
 
